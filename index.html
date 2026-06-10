@@ -11,43 +11,96 @@
   --bg:#faf8f3;--bg-dark:#e8e3d8;
   --text:#2c2416;--text-light:rgba(44,36,22,0.65);--text-lighter:rgba(44,36,22,0.45);
   --rose:#c84c5e;--teal:#4a7a7e;--gold:#b8860b;--amber:#d4a574;--sage:#7a9b7f;
-  --accent1:#e8829a;--accent2:#4a90d9;--accent3:#d4c5a0;
   --bd:rgba(44,36,22,0.1);--bd2:rgba(44,36,22,0.2);
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);font-family:'Crimson Text',serif;color:var(--text);line-height:1.75;overflow-x:hidden}
 
 #bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:900;
-  background:linear-gradient(90deg,var(--rose),var(--gold),var(--teal),var(--accent1));
-  transition:width .1s linear}
+  background:linear-gradient(90deg,var(--rose),var(--gold),var(--teal));transition:width .1s linear}
 
+/* ══ INTRO PAGE ══ */
 #intro{position:fixed;inset:0;z-index:800;background:var(--bg);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:40px;transition:opacity 1s ease}
+  text-align:center;padding:40px;transition:opacity 1s ease;overflow:hidden}
 #intro.out{opacity:0;pointer-events:none}
-.intro-deco{position:absolute;width:300px;height:300px;border:2px solid var(--bd);
-  border-radius:50%;opacity:.2;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
-  animation:rot 20s linear infinite}
-@keyframes rot{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 
-.i-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;
-  color:var(--text-lighter);margin-bottom:40px;opacity:0;animation:fa .8s ease forwards .2s}
-.i-name{font-family:'Lora',serif;font-weight:700;
-  font-size:clamp(64px,13vw,140px);line-height:.9;letter-spacing:-2px;
-  margin-bottom:24px;opacity:0;animation:fa .9s ease forwards .5s}
-.i-stmt{font-size:clamp(16px,2.4vw,22px);color:var(--text-light);line-height:1.7;
-  max-width:420px;margin-bottom:14px;opacity:0}
-.i-stmt.show{animation:fa .9s ease forwards .8s}
-.i-note{font-size:13px;color:var(--text-lighter);max-width:340px;
-  line-height:1.75;margin-bottom:36px;font-style:italic;opacity:0}
-.i-note.show{animation:fa .9s ease forwards 1s}
-.i-btn{padding:12px 40px;border:2px solid var(--text);border-radius:0;
+/* Watermark background */
+#intro::before{content:'Sowndarya';position:absolute;
+  font-family:'Lora',serif;font-size:clamp(120px,25vw,280px);font-weight:700;
+  color:rgba(200,76,94,0.04);line-height:1;letter-spacing:-4px;
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
+  z-index:0;white-space:nowrap;animation:wmfade 4s ease-in-out infinite}
+@keyframes wmfade{0%,100%{opacity:.04}50%{opacity:.08}}
+
+.intro-container{position:relative;z-index:1}
+
+/* Carousel slides */
+.carousel{position:relative;width:100%;height:400px;max-width:600px;margin:0 auto 40px}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px}
+.slide.active{opacity:1}
+
+.slide-text{font-size:clamp(14px,2.5vw,20px);color:var(--text-light);line-height:1.85;
+  font-style:italic;margin-bottom:20px}
+.slide-highlight{font-family:'Lora',serif;font-size:clamp(20px,3.5vw,32px);
+  font-weight:700;color:var(--rose);line-height:1.3}
+
+/* Name animation */
+.name-container{margin:40px 0;height:120px;display:flex;align-items:center;justify-content:center}
+.name-display{font-family:'Lora',serif;font-weight:700;
+  font-size:clamp(64px,14vw,140px);line-height:1;letter-spacing:-2px;
+  color:var(--text);position:relative}
+
+.letter{display:inline-block;animation:letterFade .6s ease-in-out forwards;
+  animation-delay:calc(var(--index) * 0.12s)}
+@keyframes letterFade{0%{opacity:0;transform:translateY(20px)}50%{opacity:1;color:var(--rose)}100%{opacity:1;color:var(--text)}}
+
+/* Core statement section */
+.core-statement{background:linear-gradient(135deg,rgba(200,76,94,0.08),rgba(232,130,154,0.06));
+  border:2px solid var(--rose);border-radius:2px;padding:40px 36px;
+  margin:40px 0;max-width:600px;position:relative;overflow:hidden}
+.core-statement::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--rose),var(--gold),var(--rose))}
+
+.statement-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--rose);margin-bottom:12px;font-weight:600}
+.statement-text{font-size:clamp(18px,2.8vw,24px);color:var(--text);line-height:1.7;
+  font-style:italic;font-weight:600}
+
+/* Dots for carousel */
+.carousel-dots{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--bd);
+  cursor:pointer;transition:all .3s;border:1px solid var(--bd2)}
+.dot.active{background:var(--rose);width:24px;border-radius:4px}
+
+/* Action buttons */
+.intro-actions{display:flex;gap:20px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.btn-primary{padding:14px 44px;border:2px solid var(--rose);border-radius:0;
+  background:var(--rose);color:var(--bg);font-family:'Crimson Text',serif;
+  font-size:14px;cursor:pointer;transition:all .3s;letter-spacing:2px;font-weight:600}
+.btn-primary:hover{background:transparent;color:var(--rose)}
+.btn-secondary{padding:14px 44px;border:2px solid var(--text);border-radius:0;
   background:transparent;color:var(--text);font-family:'Crimson Text',serif;
-  font-size:14px;cursor:pointer;transition:all .3s;opacity:0;letter-spacing:2px}
-.i-btn.show{animation:fa .8s ease forwards 1.2s}
-.i-btn:hover{background:var(--text);color:var(--bg)}
-@keyframes fa{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  font-size:14px;cursor:pointer;transition:all .3s;letter-spacing:2px;font-weight:600}
+.btn-secondary:hover{background:var(--text);color:var(--bg)}
 
+/* Decorative elements */
+.deco-line{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--rose),transparent);
+  margin:20px auto}
+
+.fade-in{opacity:0;animation:fadeInUp .9s ease forwards}
+.fade-in-1{animation-delay:.2s}
+.fade-in-2{animation-delay:.4s}
+.fade-in-3{animation-delay:.6s}
+.fade-in-4{animation-delay:.8s}
+.fade-in-5{animation-delay:1s}
+.fade-in-6{animation-delay:1.2s}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Main content */
 nav{position:fixed;top:0;left:0;right:0;z-index:600;height:60px;
   display:flex;align-items:center;justify-content:space-between;padding:0 5%;
   background:var(--bg);border-bottom:2px solid var(--bd);opacity:0;pointer-events:none;
@@ -63,9 +116,7 @@ main{margin-top:60px}
 .sec{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;
   position:relative;border-bottom:1px solid var(--bd)}
 .sec-text{padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
-.sec-visual{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;
-  position:relative;overflow:hidden}
-
+.sec-visual{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;position:relative}
 .sec-visual::before{content:'';position:absolute;inset:0;pointer-events:none;
   opacity:.03;background:repeating-linear-gradient(45deg,transparent,transparent 10px,currentColor 10px,currentColor 20px)}
 
@@ -77,17 +128,13 @@ main{margin-top:60px}
 
 .ch-num{font-family:'Lora',serif;font-size:140px;font-weight:700;
   opacity:.08;position:absolute;top:20px;right:20px;line-height:1}
-
 .sh{font-family:'Lora',serif;font-weight:700;
   font-size:clamp(32px,5vw,56px);line-height:1.15;letter-spacing:-1px;
   color:var(--text);margin-bottom:16px}
 .sh.rose{color:var(--rose)}.sh.teal{color:var(--teal)}.sh.gold{color:var(--gold)}.sh.sage{color:var(--sage)}
-
 .ssub{font-size:16px;color:var(--text-light);margin-bottom:32px;line-height:1.75}
-
 .bt{font-size:16px;line-height:1.85;color:var(--text);margin-bottom:16px}
 .bt em{color:var(--rose);font-style:italic;font-weight:600}
-
 .pq{border-left:4px solid var(--rose);padding:20px 0 20px 28px;margin:28px 0;
   font-size:clamp(16px,2vw,20px);color:var(--text);line-height:1.8;
   opacity:0;transform:translateX(-10px);transition:opacity .8s ease,transform .8s ease}
@@ -112,11 +159,6 @@ main{margin-top:60px}
 .grid-item-3-title{font-family:'Lora',serif;font-weight:600;font-size:13px;margin-bottom:5px;color:var(--text)}
 .grid-item-3-text{font-size:12px;color:var(--text-light)}
 
-.vis-quote{font-family:'Lora',serif;font-size:48px;color:var(--accent1);opacity:.15;
-  line-height:.8;margin-bottom:20px;font-style:italic}
-.vis-stat{font-family:'Lora',serif;font-size:80px;font-weight:700;color:var(--rose);opacity:.2;line-height:1}
-.vis-line{width:100%;height:1px;background:var(--bd);margin:20px 0}
-
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .85s ease,transform .85s ease}
 .reveal.vis{opacity:1;transform:translateY(0)}
 
@@ -138,13 +180,69 @@ footer p{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--
 
 <div id="bar"></div>
 
+<!-- ENHANCED INTRO PAGE -->
 <div id="intro">
-  <div class="intro-deco"></div>
-  <div class="i-tag">Please read this only when calm</div>
-  <h1 class="i-name">Sowndarya</h1>
-  <p class="i-stmt">Some things only need to be said once.<br>Honestly. Clearly. Without pressure.</p>
-  <p class="i-note">If you're angry, please come back when your mind is quiet.</p>
-  <button class="i-btn" id="ibtn" onclick="enter()">Open this letter</button>
+  <div class="intro-container">
+    <!-- Carousel -->
+    <div class="carousel fade-in fade-in-1">
+      <div class="slide active">
+        <div class="slide-text">Some things only need to be said once</div>
+        <div class="slide-highlight">Honestly. Clearly. Without pressure.</div>
+      </div>
+      <div class="slide">
+        <div class="slide-text">I didn't fall in love with you randomly</div>
+        <div class="slide-highlight">I understood you deeply first</div>
+      </div>
+      <div class="slide">
+        <div class="slide-text">When you're struggling, let me be there</div>
+        <div class="slide-highlight">The friend who truly understands you</div>
+      </div>
+      <div class="slide">
+        <div class="slide-text">I moved my entire life for you</div>
+        <div class="slide-highlight">That's how much you matter to me</div>
+      </div>
+      <div class="slide">
+        <div class="slide-text">9 months of silence</div>
+        <div class="slide-highlight">Because your peace matters more than my need</div>
+      </div>
+    </div>
+    
+    <div class="carousel-dots fade-in fade-in-2">
+      <div class="dot active" onclick="goSlide(0)"></div>
+      <div class="dot" onclick="goSlide(1)"></div>
+      <div class="dot" onclick="goSlide(2)"></div>
+      <div class="dot" onclick="goSlide(3)"></div>
+      <div class="dot" onclick="goSlide(4)"></div>
+    </div>
+
+    <div class="deco-line fade-in fade-in-3"></div>
+
+    <!-- Animated Name -->
+    <div class="name-container fade-in fade-in-3">
+      <div class="name-display" id="name"></div>
+    </div>
+
+    <!-- Core Statement -->
+    <div class="core-statement fade-in fade-in-4">
+      <div class="statement-label">My Only Ask</div>
+      <div class="statement-text">
+        I'm not asking for commitment.<br>
+        I'm not asking you to choose me.<br><br>
+        <em style="color:var(--rose)">Let me be there when you need someone who truly understands you.</em>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <p style="font-size:14px;color:var(--text-light);max-width:600px;line-height:1.85;margin:20px 0;font-style:italic;opacity:0;animation:fadeInUp .9s ease forwards;animation-delay:1.4s">
+      If you're angry right now, please come back when your mind is quiet.<br>This letter deserves to be read with a calm heart.
+    </p>
+
+    <!-- Action Buttons -->
+    <div class="intro-actions fade-in fade-in-6">
+      <button class="btn-primary" onclick="enter()">Read the full letter</button>
+      <button class="btn-secondary" onclick="scrollDown()">Learn more first</button>
+    </div>
+  </div>
 </div>
 
 <nav id="nav">
@@ -186,7 +284,7 @@ footer p{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--
   </div>
 
   <div class="sec-visual reveal">
-    <div class="vis-quote">''</div>
+    <div style="font-size:48px;color:#e8829a;opacity:.15;line-height:.8;margin-bottom:20px;font-style:italic">''</div>
     <div class="grid-3" id="sg1">
       <div class="grid-item-3"><div class="grid-item-3-icon">🎯</div><div class="grid-item-3-title">Career</div><div class="grid-item-3-text">You know you need to move forward. We're in the same domain. Together, we can focus on both our careers.</div></div>
       <div class="grid-item-3"><div class="grid-item-3-icon">🌿</div><div class="grid-item-3-title">Health</div><div class="grid-item-3-text">I watched you manage alone. When you went quiet, I understood it as exhaustion, and I gave you space.</div></div>
@@ -201,7 +299,7 @@ footer p{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--
 <!-- S2 -->
 <section class="sec" id="s2">
   <div class="sec-visual reveal">
-    <div class="vis-stat">9</div>
+    <div style="font-size:80px;font-weight:700;color:var(--rose);opacity:.2;line-height:1">9</div>
     <p style="font-size:16px;color:var(--text-light);margin-top:20px;line-height:1.9">months of silence</p>
     <p style="font-size:14px;color:var(--text-light);margin-top:40px;line-height:1.85">
       Not one forced call.<br>Not one message demanding a reply.<br><br>
@@ -268,7 +366,7 @@ footer p{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--
       honesty<br>
       genuine care
     </p>
-    <div class="vis-line" style="margin-top:40px"></div>
+    <div style="width:100%;height:1px;background:var(--bd);margin:40px 0"></div>
     <p style="font-size:14px;color:var(--text-lighter);margin-top:40px;line-height:1.9">
       A real man thinks about how to fix things, not how to leave.
     </p>
@@ -358,15 +456,44 @@ footer p{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--
 </footer>
 
 <script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+let autoSlideTimer;
+
+function showSlide(n){
+  if(n>=totalSlides) currentSlide=0;
+  if(n<0) currentSlide=totalSlides-1;
+  slides.forEach(s=>s.classList.remove('active'));
+  slides[currentSlide].classList.add('active');
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===currentSlide));
+  clearTimeout(autoSlideTimer);
+  autoSlideTimer=setTimeout(()=>nextSlide(),4000);
+}
+
+function nextSlide(){currentSlide++;showSlide(currentSlide)}
+function goSlide(n){currentSlide=n;showSlide(currentSlide)}
+
+// Animate name
+window.addEventListener('load',()=>{
+  const nameEl=document.getElementById('name');
+  const name='Sowndarya';
+  nameEl.innerHTML=name.split('').map((c,i)=>`<span class="letter" style="--index:${i}">${c}</span>`).join('');
+  showSlide(0);
+});
+
 function enter(){
-  document.getElementById('intro').style.opacity='0';
-  document.getElementById('intro').style.pointerEvents='none';
+  document.getElementById('intro').classList.add('out');
   setTimeout(()=>{
     document.getElementById('intro').style.display='none';
     document.getElementById('nav').classList.add('show');
     document.getElementById('main').style.opacity='1';
     init();
   },800);
+}
+
+function scrollDown(){
+  document.getElementById('s1').scrollIntoView({behavior:'smooth'});
 }
 
 function init(){
