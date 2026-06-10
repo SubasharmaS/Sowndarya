@@ -4,188 +4,246 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Sowndarya</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f7f3ed;--bg2:#f0e9df;--bg3:#e8dfd3;
-  --card:#ffffff;--ink:#1e1610;--ink2:rgba(30,22,16,0.55);--ink3:rgba(30,22,16,0.32);
-  --gold:#8a6820;--gdim:rgba(138,104,32,0.45);--gbg:rgba(138,104,32,0.06);--gbdr:rgba(138,104,32,0.2);
-  --rose:#8a3a3a;--rbg:rgba(138,58,58,0.07);
-  --teal:#2e6e6a;--tbg:rgba(46,110,106,0.07);
-  --bd:rgba(30,22,16,0.1);--bd2:rgba(30,22,16,0.16);
-  --sh:0 1px 4px rgba(0,0,0,0.04),0 4px 20px rgba(0,0,0,0.06);
+  --bg:#130508;--bg2:#1c0a0f;--bg3:#240d14;--card:#1f0c10;
+  --ink:#f5e8ec;--ink2:rgba(245,232,236,0.55);--ink3:rgba(245,232,236,0.28);
+  --rose:#e8829a;--rose2:#c45a72;--rdim:rgba(232,130,154,0.45);
+  --rbg:rgba(232,130,154,0.08);--rbd:rgba(232,130,154,0.22);
+  --pink:#f0b8c8;--pdim:rgba(240,184,200,0.4);
+  --gold:#d4aa70;--gdim:rgba(212,170,112,0.45);--gbg:rgba(212,170,112,0.07);
+  --bd:rgba(232,130,154,0.12);--bd2:rgba(232,130,154,0.22);
+  --sh:0 2px 8px rgba(0,0,0,0.3),0 8px 32px rgba(196,90,114,0.1);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:var(--ink);overflow-x:hidden}
-#bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:900;
-  background:linear-gradient(90deg,var(--rose),var(--gold));transition:width .1s linear}
+body{background:var(--bg);font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 10%,rgba(196,90,114,0.1) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 90%,rgba(212,170,112,0.07) 0%,transparent 60%)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay}
 
-/* INTRO */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:900;
+  background:linear-gradient(90deg,var(--rose2),var(--pink),var(--gold));
+  box-shadow:0 0 20px rgba(232,130,154,0.6);transition:width .1s linear}
+
+/* ══ INTRO ══ */
 #intro{position:fixed;inset:0;z-index:800;background:var(--bg);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:40px;transition:opacity .9s ease,transform .9s ease}
-#intro.out{opacity:0;transform:scale(1.02);pointer-events:none}
+  text-align:center;padding:40px;transition:opacity 1s ease,transform 1s ease}
+#intro.out{opacity:0;transform:scale(1.03);pointer-events:none}
 .ig{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:460px;height:460px;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(138,104,32,0.09) 0%,transparent 70%);
+  width:520px;height:520px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(196,90,114,0.15) 0%,transparent 70%);
   animation:pg 4s ease-in-out infinite}
-@keyframes pg{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.08)}}
-.i-warn{font-size:11px;font-weight:500;letter-spacing:1px;color:var(--rose);
-  margin-bottom:12px;opacity:0;animation:fa .8s ease forwards .2s}
-.i-tag{font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--gdim);
-  margin-bottom:40px;opacity:0;animation:fa .8s ease forwards .5s}
-.i-name{font-family:'Cormorant',serif;font-weight:700;
-  font-size:clamp(60px,13vw,126px);line-height:.88;letter-spacing:-3px;color:var(--ink);
+@keyframes pg{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
+.i-warn{font-size:11px;letter-spacing:3px;color:var(--rose);
+  margin-bottom:10px;opacity:0;animation:fa .8s ease forwards .2s}
+.i-tag{font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--rdim);
+  margin-bottom:44px;opacity:0;animation:fa .8s ease forwards .5s}
+.i-name{font-family:'Fraunces',serif;font-weight:900;font-style:italic;
+  font-size:clamp(66px,14vw,140px);line-height:.85;letter-spacing:-4px;
   margin-bottom:28px;display:flex;justify-content:center;flex-wrap:wrap}
-.ln{display:inline-block;opacity:0}.ln.hi{color:var(--gold)}
-.i-stmt{font-family:'Cormorant',serif;font-style:italic;font-weight:300;
-  font-size:clamp(15px,2.4vw,21px);color:var(--ink2);line-height:1.65;
-  max-width:420px;margin-bottom:36px;opacity:0}
+.ln{display:inline-block;opacity:0;color:var(--ink)}
+.ln.hi{background:linear-gradient(135deg,var(--rose),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.i-stmt{font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+  font-size:clamp(15px,2.5vw,22px);color:var(--ink2);line-height:1.65;
+  max-width:420px;margin-bottom:14px;opacity:0}
 .i-stmt.show{animation:fa .9s ease forwards}
-.i-note{font-size:13px;font-weight:300;color:var(--ink3);max-width:360px;
-  line-height:1.7;margin-bottom:36px;font-style:italic;opacity:0}
+.i-note{font-size:13px;font-weight:300;color:var(--ink3);max-width:340px;
+  line-height:1.75;margin-bottom:36px;opacity:0}
 .i-note.show{animation:fa .9s ease forwards .2s}
-.i-btn{padding:13px 38px;border:1px solid var(--bd2);border-radius:2px;
-  background:transparent;color:var(--ink2);font-family:'Inter',sans-serif;
+.i-btn{padding:14px 42px;border:1px solid var(--rbd);border-radius:2px;
+  background:transparent;color:var(--ink2);font-family:'DM Sans',sans-serif;
   font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;
-  transition:all .3s;opacity:0}
+  transition:all .35s;opacity:0}
 .i-btn.show{animation:fa .8s ease forwards .4s}
-.i-btn:hover{background:var(--gbg);border-color:var(--gold);color:var(--gold)}
+.i-btn:hover{background:var(--rbg);border-color:var(--rose);color:var(--pink);
+  box-shadow:0 0 24px rgba(232,130,154,0.2)}
 @keyframes fa{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:600;height:56px;
+/* ══ NAV ══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;
   display:flex;align-items:center;justify-content:space-between;padding:0 52px;
-  background:rgba(247,243,237,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
-.logo{font-family:'Cormorant',serif;font-size:17px;font-style:italic;color:var(--gold);cursor:pointer}
-.nav-links{display:flex;gap:22px}
+  background:rgba(19,5,8,0.93);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bd)}
+.logo{font-family:'Fraunces',serif;font-size:18px;font-style:italic;
+  font-weight:700;color:var(--rose);cursor:pointer;letter-spacing:.5px}
+.nav-links{display:flex;gap:26px}
 .nav-links button{background:none;border:none;cursor:pointer;
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
-  letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);transition:color .2s}
-.nav-links button:hover,.nav-links button.active{color:var(--gold)}
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;color:var(--ink3);transition:color .2s}
+.nav-links button:hover,.nav-links button.active{color:var(--rose)}
 
-/* SECTIONS */
+/* ══ SECTIONS ══ */
 .sec{min-height:100vh;position:relative;display:flex;flex-direction:column;
-  justify-content:center;overflow:hidden;padding:96px 56px}
-.gn{font-family:'Cormorant',serif;font-weight:700;
-  font-size:clamp(160px,25vw,280px);line-height:1;letter-spacing:-8px;
-  color:rgba(30,22,16,0.04);position:absolute;right:-20px;
+  justify-content:center;overflow:hidden;padding:96px 56px;z-index:1}
+.gn{font-family:'Fraunces',serif;font-weight:900;font-style:italic;
+  font-size:clamp(180px,28vw,320px);line-height:1;letter-spacing:-10px;
+  color:rgba(232,130,154,0.04);position:absolute;right:-20px;
   top:50%;transform:translateY(-50%);pointer-events:none;user-select:none}
 
-.clbl{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.clbl-n{font-family:'Cormorant',serif;font-size:12px;font-style:italic;color:var(--ink3)}
+/* chapter label */
+.clbl{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.clbl-n{font-family:'Fraunces',serif;font-size:13px;font-style:italic;color:var(--rdim)}
 .clbl-line{width:28px;height:1px;background:var(--bd2)}
-.clbl-t{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--ink3)}
+.clbl-t{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--rdim)}
 
-.sh{font-family:'Cormorant',serif;font-weight:600;
-  font-size:clamp(32px,4.8vw,60px);line-height:1.06;letter-spacing:-1px;
-  color:var(--ink);margin-bottom:12px;max-width:700px}
-.sh em{font-style:italic;color:var(--gold)}
-.ssub{font-size:14px;font-weight:300;color:var(--ink2);margin-bottom:34px;line-height:1.65;max-width:460px}
+/* CINEMATIC HEADINGS */
+.sh{font-family:'Fraunces',serif;font-weight:900;font-style:italic;
+  font-size:clamp(44px,7vw,88px);line-height:.96;letter-spacing:-2px;
+  color:var(--ink);margin-bottom:14px;max-width:760px}
+.sh em{color:var(--rose)}
+.sh span{background:linear-gradient(135deg,var(--rose),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ssub{font-size:15px;font-weight:300;color:var(--ink2);
+  margin-bottom:36px;line-height:1.7;max-width:480px}
 
-.bt{font-size:16px;line-height:2;font-weight:300;color:var(--ink);margin-bottom:16px;max-width:620px}
-.bt em{color:var(--gold);font-style:normal}
+/* body */
+.bt{font-size:16px;line-height:1.95;font-weight:300;color:var(--ink);
+  margin-bottom:18px;max-width:640px}
+.bt em{color:var(--pink);font-style:normal}
 .bt.dim{color:var(--ink2)}
 
-.pq{border-left:3px solid rgba(30,22,16,0.13);padding:20px 28px;margin:28px 0;
-  font-family:'Cormorant',serif;font-style:italic;font-weight:300;
-  font-size:clamp(17px,2.2vw,22px);color:var(--ink);line-height:1.62;max-width:600px;
-  opacity:0;transform:translateX(-8px);transition:opacity .8s ease,transform .8s ease}
+/* pull quote */
+.pq{border-left:3px solid var(--rbd);padding:20px 28px;margin:28px 0;
+  font-family:'Fraunces',serif;font-style:italic;font-weight:300;
+  font-size:clamp(17px,2.3vw,23px);color:var(--pink);line-height:1.62;max-width:620px;
+  opacity:0;transform:translateX(-10px);
+  transition:opacity .8s ease,transform .8s ease}
 .pq.vis{opacity:1;transform:translateX(0)}
-.pq small{display:block;margin-top:8px;font-family:'Inter',sans-serif;
+.pq small{display:block;margin-top:9px;font-family:'DM Sans',sans-serif;
   font-size:13px;font-style:normal;font-weight:300;color:var(--ink2)}
 
-.rule{display:flex;align-items:center;gap:12px;margin:22px 0;max-width:480px}
+.rule{display:flex;align-items:center;gap:12px;margin:22px 0;max-width:500px}
 .rule::before,.rule::after{content:'';flex:1;height:1px;
   background:linear-gradient(to right,transparent,var(--bd2),transparent)}
-.rule span{font-size:10px;letter-spacing:3px;color:var(--ink3)}
+.rule span{font-size:11px;color:var(--rdim)}
 
-/* GRIDS */
-.sg{display:grid;gap:1px;background:var(--bd);border:1px solid var(--bd);margin:24px 0;max-width:840px}
+/* ══ GRIDS ══ */
+.sg{display:grid;gap:1px;background:var(--bd);border:1px solid var(--bd);
+  margin:24px 0;max-width:860px}
 .sg.c3{grid-template-columns:1fr 1fr 1fr}.sg.c2{grid-template-columns:1fr 1fr}
-.sc{background:var(--card);padding:22px 20px;box-shadow:var(--sh);
-  opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease,background .2s}
-.sc.vis{opacity:1;transform:translateY(0)}.sc:hover{background:var(--bg)}
-.sc-icon{font-size:18px;margin-bottom:9px}
-.sc-title{font-family:'Cormorant',serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.2}
-.sc-text{font-size:13px;line-height:1.8;font-weight:300;color:var(--ink2)}
+.sc{background:var(--card);padding:24px 22px;box-shadow:var(--sh);
+  opacity:0;transform:translateY(10px);
+  transition:opacity .5s ease,transform .5s ease,background .2s}
+.sc.vis{opacity:1;transform:translateY(0)}
+.sc:hover{background:var(--bg3)}
+.sc-icon{font-size:20px;margin-bottom:10px}
+.sc-title{font-family:'Fraunces',serif;font-size:17px;font-style:italic;
+  font-weight:700;color:var(--rose);margin-bottom:7px;line-height:1.2}
+.sc-text{font-size:13.5px;line-height:1.8;font-weight:300;color:var(--ink2)}
 
-/* EVIDENCE */
-.ev-wrap{display:grid;gap:1px;background:var(--bd);border:1px solid var(--bd);margin:24px 0;max-width:840px}
-.ev{display:grid;grid-template-columns:1fr 2fr;opacity:0;transform:translateY(8px);transition:opacity .55s ease,transform .55s ease}
+/* ══ EVIDENCE ══ */
+.ev-wrap{display:grid;gap:1px;background:var(--bd);border:1px solid var(--bd);
+  margin:24px 0;max-width:860px}
+.ev{display:grid;grid-template-columns:1fr 2fr;
+  opacity:0;transform:translateY(8px);transition:opacity .55s ease,transform .55s ease}
 .ev.vis{opacity:1;transform:translateY(0)}
 .ev-l{background:var(--card);padding:20px 22px;border-right:1px solid var(--bd);transition:background .2s}
 .ev-r{background:var(--card);padding:20px 22px;transition:background .2s}
-.ev:hover .ev-l,.ev:hover .ev-r{background:var(--bg)}.ev:hover .ev-r{background:var(--gbg)}
-.ev-qtag,.ev-atag{font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;font-weight:500}
-.ev-qtag{color:var(--ink3)}.ev-atag{color:var(--gold)}
-.ev-q{font-family:'Cormorant',serif;font-size:14px;font-style:italic;color:var(--ink2);line-height:1.4}
-.ev-a{font-size:13.5px;line-height:1.85;font-weight:300;color:var(--ink)}
+.ev:hover .ev-l,.ev:hover .ev-r{background:var(--bg3)}
+.ev:hover .ev-r{background:rgba(232,130,154,0.05)}
+.ev-qtag,.ev-atag{font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:7px;font-weight:500}
+.ev-qtag{color:var(--ink3)}.ev-atag{color:var(--rose)}
+.ev-q{font-family:'Fraunces',serif;font-size:15px;font-style:italic;color:var(--ink2);line-height:1.4}
+.ev-a{font-size:14px;line-height:1.85;font-weight:300;color:var(--ink)}
 
-/* AO */
-.ao-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);border:1px solid var(--bd);margin:24px 0;max-width:840px}
+/* ══ AO ══ */
+.ao-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--bd);border:1px solid var(--bd);margin:24px 0;max-width:860px}
 .ao{background:var(--card);padding:20px 20px;box-shadow:var(--sh);
   opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease,background .2s}
-.ao.vis{opacity:1;transform:translateY(0)}.ao:hover{background:var(--bg)}
+.ao.vis{opacity:1;transform:translateY(0)}.ao:hover{background:var(--bg3)}
 .ao-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:7px;font-weight:500}
-.ao.m .ao-tag{color:var(--rose)}.ao.o .ao-tag{color:var(--teal)}
-.ao-title{font-family:'Cormorant',serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:7px}
-.ao-text{font-size:13px;line-height:1.8;font-weight:300;color:var(--ink2)}
+.ao.m .ao-tag{color:#e87878}.ao.o .ao-tag{color:var(--gold)}
+.ao-title{font-family:'Fraunces',serif;font-size:17px;font-style:italic;
+  font-weight:700;color:var(--pink);margin-bottom:7px}
+.ao-text{font-size:13.5px;line-height:1.8;font-weight:300;color:var(--ink2)}
 
-/* DECL */
-.decl{border:1px solid var(--gbdr);border-radius:6px;padding:28px 32px;
-  margin:24px auto;max-width:480px;background:var(--gbg);position:relative;overflow:hidden}
-.decl::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,var(--gold),transparent)}
-.decl-pre{font-size:13px;font-weight:300;color:var(--ink2);margin-bottom:14px;font-style:italic;line-height:1.6}
-.decl-main{font-family:'Cormorant',serif;font-style:italic;font-weight:600;
-  font-size:clamp(21px,3.5vw,32px);color:var(--ink);line-height:1.3;margin-bottom:14px}
-.decl-note{font-size:13px;font-weight:300;color:var(--ink2);line-height:1.7;
+/* ══ 9 MONTHS CARD ══ */
+.nine-card{background:var(--card);border:1px solid var(--rbd);border-radius:8px;
+  padding:32px 36px;margin:28px 0;max-width:660px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.nine-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--rose2),var(--pink),var(--gold))}
+.nine-num{font-family:'Fraunces',serif;font-weight:900;font-style:italic;
+  font-size:clamp(64px,12vw,110px);line-height:.85;letter-spacing:-4px;
+  background:linear-gradient(135deg,var(--rose),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:4px}
+.nine-unit{font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--rdim);margin-bottom:20px}
+.nine-card p{font-size:15px;line-height:1.9;font-weight:300;color:var(--ink2);margin-bottom:12px}
+.nine-card p:last-child{margin:0;font-family:'Fraunces',serif;font-style:italic;
+  font-size:17px;color:var(--rose);padding-top:14px;border-top:1px solid var(--bd)}
+
+/* ══ DECL ══ */
+.decl{border:1px solid var(--rbd);border-radius:8px;padding:30px 34px;
+  margin:24px auto;max-width:500px;background:var(--rbg);position:relative;overflow:hidden}
+.decl::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--rose2),var(--pink))}
+.decl-pre{font-size:13px;font-weight:300;color:var(--ink2);margin-bottom:14px;
+  font-style:italic;line-height:1.7}
+.decl-main{font-family:'Fraunces',serif;font-style:italic;font-weight:900;
+  font-size:clamp(24px,4vw,38px);color:var(--ink);line-height:1.25;margin-bottom:14px}
+.decl-note{font-size:13.5px;font-weight:300;color:var(--ink2);line-height:1.8;
   padding-top:14px;border-top:1px solid var(--bd)}
 
-/* POEM */
-.poem{border:1px solid var(--gbdr);border-radius:6px;padding:34px 38px;
-  margin:22px auto;max-width:380px;background:var(--card);
-  display:grid;gap:18px;box-shadow:var(--sh);position:relative}
-.poem::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,rgba(138,104,32,0.5),transparent)}
-.poem-row{display:flex;flex-direction:column;gap:4px}
+/* ══ POEM ══ */
+.poem{border:1px solid var(--rbd);border-radius:8px;padding:36px 40px;
+  margin:24px auto;max-width:400px;background:var(--card);
+  display:grid;gap:20px;box-shadow:var(--sh);position:relative}
+.poem::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--rose2),var(--pink),var(--gold))}
+.poem-row{display:flex;flex-direction:column;gap:5px}
 .poem-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ink3)}
-.poem-val{font-family:'Cormorant',serif;font-size:19px;font-style:italic;font-weight:400;color:var(--ink);line-height:1.25}
-.poem-val.gold{font-size:23px;color:var(--gold)}
+.poem-val{font-family:'Fraunces',serif;font-size:20px;font-style:italic;
+  font-weight:700;color:var(--ink);line-height:1.25}
+.poem-val.gold{font-size:24px;background:linear-gradient(135deg,var(--rose),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-/* FINAL */
+/* ══ FINAL ══ */
 #s5{background:var(--bg2);align-items:center;justify-content:center;text-align:center}
-.f-in{max-width:520px;width:100%;margin:0 auto}
-.f-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--ink3);margin-bottom:20px}
-.f-h{font-family:'Cormorant',serif;font-weight:600;
-  font-size:clamp(26px,4.5vw,48px);line-height:1.1;letter-spacing:-1px;color:var(--ink);margin-bottom:20px}
-.f-h em{font-style:italic;color:var(--gold)}
+.f-in{max-width:560px;width:100%;margin:0 auto}
+.f-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--rdim);margin-bottom:22px}
+.f-h{font-family:'Fraunces',serif;font-weight:900;font-style:italic;
+  font-size:clamp(36px,6vw,66px);line-height:.96;letter-spacing:-2px;
+  color:var(--ink);margin-bottom:22px}
+.f-h em{background:linear-gradient(135deg,var(--rose),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .f-p{font-size:16px;line-height:2;font-weight:300;color:var(--ink);margin-bottom:14px}
-.f-p em{color:var(--gold);font-style:normal}.f-p.dim{color:var(--ink2);font-size:14px}
-.f-neeya{font-family:'Cormorant',serif;font-style:italic;font-weight:600;
-  font-size:clamp(20px,3.5vw,34px);color:var(--ink);line-height:1.2;margin:26px auto;max-width:440px}
-.f-neeya small{display:block;margin-top:8px;font-family:'Inter',sans-serif;
-  font-size:13px;font-style:normal;font-weight:300;color:var(--ink2)}
-.f-sig-wrap{margin-top:28px;padding-top:20px;border-top:1px solid var(--bd);display:inline-block}
+.f-p em{color:var(--pink);font-style:normal}.f-p.dim{color:var(--ink2);font-size:14px}
+.f-neeya{font-family:'Fraunces',serif;font-style:italic;font-weight:900;
+  font-size:clamp(26px,4.5vw,46px);line-height:1.1;
+  background:linear-gradient(135deg,var(--rose),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin:28px auto;max-width:480px}
+.f-neeya small{display:block;margin-top:8px;font-family:'DM Sans',sans-serif;
+  font-size:13px;font-style:normal;font-weight:300;color:var(--ink2);
+  -webkit-text-fill-color:var(--ink2)}
+.f-sig-wrap{margin-top:30px;padding-top:22px;border-top:1px solid var(--bd);display:inline-block}
 .f-sig-note{font-size:13px;color:var(--ink2);font-style:italic;line-height:1.7;margin-bottom:10px}
-.f-sig{font-family:'Cormorant',serif;font-size:30px;font-style:italic;color:var(--gold)}
+.f-sig{font-family:'Fraunces',serif;font-size:34px;font-style:italic;font-weight:700;color:var(--rose)}
 
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .85s ease,transform .85s ease}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .85s ease,transform .85s ease}
 .reveal.vis{opacity:1;transform:translateY(0)}
 
 footer{padding:36px;text-align:center;border-top:1px solid var(--bd);background:var(--bg)}
-footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);opacity:.5}
+footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);opacity:.45}
 
 @media(max-width:680px){
-  nav{padding:0 16px}.nav-links{gap:10px}
+  nav{padding:0 18px}.nav-links{gap:12px}
   .nav-links button{font-size:10px;letter-spacing:1px}
   .sec{padding:80px 22px}.gn{display:none}
   .sg.c3,.sg.c2,.ao-wrap{grid-template-columns:1fr}
   .ev{grid-template-columns:1fr}
   .ev-l{border-right:none;border-bottom:1px solid var(--bd)}
-  .poem,.decl{padding:24px 20px}
+  .poem,.decl{padding:24px 20px}.nine-card{padding:24px 22px}
 }
 </style>
 </head>
@@ -196,7 +254,7 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
 <div id="intro">
   <div class="ig"></div>
   <div class="i-warn">Please read this only when your mind is calm.</div>
-  <div class="i-tag">Don't skip this — just once, calmly</div>
+  <div class="i-tag">Don't skip this — just once, with an open heart</div>
   <div class="i-name" id="iname"></div>
   <p class="i-stmt" id="istmt">Some things only need to be said once.<br>Honestly. Clearly. Without pressure.</p>
   <p class="i-note" id="inote">If you're angry right now, please come back later.<br>This deserves to be read with a quiet mind.</p>
@@ -216,17 +274,17 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
 
 <main id="main" style="opacity:0;pointer-events:none">
 
-<!-- S1 — I SEE YOU -->
+<!-- S1 -->
 <section class="sec" id="s1" style="background:var(--bg)">
   <div class="gn">I</div>
   <div class="reveal">
     <div class="clbl"><span class="clbl-n">01</span><div class="clbl-line"></div><span class="clbl-t">I see you</span></div>
-    <h2 class="sh">I know you —<br><em>in ways you haven't noticed.</em></h2>
-    <p class="ssub">Not from watching from a distance. From genuinely paying attention to every quiet thing about you.</p>
+    <h2 class="sh">I know you —<br><em>more than you realise.</em></h2>
+    <p class="ssub">Not from a distance. From genuinely paying attention to every quiet thing about you.</p>
 
     <p class="bt">I understand how carefully you choose who to trust. Sharing something personal — something real — that doesn't happen easily. And you did that with me.</p>
     <p class="bt"><em>I never took that lightly.</em> Not even for a moment. That trust meant everything to me — and it still does.</p>
-    <p class="bt">There were moments when you trusted me with something real. Tears. Personal things. Parts of your life that don't get shared with just anyone. If that happened — how could I just walk away?</p>
+    <p class="bt">There were moments when you trusted me with something real — tears, personal things, parts of your life that don't get shared with just anyone. If that happened — how could I just walk away?</p>
 
     <div class="pq" data-pq>
       I didn't come into your life without thought. I came after understanding you — deeply, quietly, over time.
@@ -234,33 +292,27 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
     </div>
 
     <div class="sg c3" id="sg1">
-      <div class="sc">
-        <div class="sc-icon">🎯</div>
+      <div class="sc"><div class="sc-icon">🎯</div>
         <div class="sc-title">Your career fear</div>
-        <div class="sc-text">You know you need to move forward but it feels impossible when you're already stretched. We're in the same domain — I understand exactly what you're facing. We can focus on both our careers together, step by step. You don't have to figure it out alone.</div>
+        <div class="sc-text">You know you need to move forward but it feels impossible when you're already stretched. We're in the same domain — I understand exactly what you're facing. We can focus on both our careers together, step by step.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">🌿</div>
+      <div class="sc"><div class="sc-icon">🌿</div>
         <div class="sc-title">Your health — alone</div>
         <div class="sc-text">I watched you manage your health with no one consistently beside you. When you went quiet, I never took it as rejection — I understood it as exhaustion, and I gave you space without making it about me.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">🔥</div>
+      <div class="sc"><div class="sc-icon">🔥</div>
         <div class="sc-title">I saw what you were carrying</div>
-        <div class="sc-text">Every hard day, every responsibility absorbed alone — I noticed. I was paying attention even when I said nothing. That's not something I did to seem caring. That's just what genuinely caring looks like.</div>
+        <div class="sc-text">Every hard day, every responsibility absorbed alone — I noticed. I was paying attention even when I said nothing. That's just what genuinely caring about someone looks like.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">🌊</div>
+      <div class="sc"><div class="sc-icon">🌊</div>
         <div class="sc-title">Your emotions & mood</div>
-        <div class="sc-text">I understand mood swings completely — and I know how to meet them with patience, not judgment. I made a decision a long time ago: I will never make you feel like you have to explain yourself to me.</div>
+        <div class="sc-text">I understand mood swings completely — and I know how to meet them with patience, not judgment. I made a decision: I will never make you feel like you have to explain yourself to me.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">🛡️</div>
+      <div class="sc"><div class="sc-icon">🛡️</div>
         <div class="sc-title">Someone close to you</div>
-        <div class="sc-text">There are personal things I know — about you and someone close to you. I'm not saying anything because your bond with that person matters deeply. I'll always protect it, never affect it.</div>
+        <div class="sc-text">There are things I came to know — about you and someone close to you. I chose not to say anything because I respected what that relationship means to you. I protected it. I always will.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">💙</div>
+      <div class="sc"><div class="sc-icon">💙</div>
         <div class="sc-title">Bheem</div>
         <div class="sc-text">He matters to you — so he matters to me. I'd care for him the same way I care about everything important to you. That won't change regardless of anything.</div>
       </div>
@@ -270,7 +322,6 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
       If you understand yourself, you will understand me too.
       <small>I see you clearly — not the version you show the world. The real you, with everything you carry. And I'm still here.</small>
     </div>
-
     <div class="pq" data-pq>
       My love for you is not based on convenience. It is based on dedication.
       <small>When things get complicated, I won't think about how to leave. I'll think about how to make things right. You are someone I chose — with everything I have.</small>
@@ -278,26 +329,26 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
   </div>
 </section>
 
-<!-- S2 — THE TRUTH -->
+<!-- S2 -->
 <section class="sec" id="s2" style="background:var(--bg2)">
   <div class="gn">II</div>
   <div class="reveal">
     <div class="clbl"><span class="clbl-n">02</span><div class="clbl-line"></div><span class="clbl-t">The truth</span></div>
-    <h2 class="sh">I have never lied to you.<br><em>Look at what I actually did.</em></h2>
+    <h2 class="sh">I have never<br><em>lied to you.</em></h2>
     <p class="ssub">The proof isn't in what I said. It's in everything I chose to do — and everything I chose not to do.</p>
 
     <div class="ev-wrap" id="ev1">
       <div class="ev">
         <div class="ev-l"><div class="ev-qtag">The question</div><div class="ev-q">Why did you move to Bangalore?</div></div>
-        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">You are in Bangalore. That was the only reason. I didn't just visit — I relocated my entire life. Work, routine, everything I had built in Tamil Nadu — I changed it all and moved. Not on impulse. After thinking clearly about what matters to me. I have no one else in Bangalore. No family, no old friends, no safety net. Just the decision that being near you — as someone who genuinely cares for you — was worth all of it. If the intention behind that was wrong, ask yourself: would someone dismantle their entire life for someone they didn't truly care about?</div></div>
+        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">You are in Bangalore. That was the only reason. I didn't just visit — I relocated my entire life. Work, routine, everything I had built in Tamil Nadu — I changed it all and moved. Not on impulse. After thinking clearly about what matters to me. I have no one else in Bangalore — no family, no old friends, no safety net. Just the decision that being near you was worth all of it. Would someone dismantle their entire life for someone they didn't truly care about?</div></div>
       </div>
       <div class="ev">
         <div class="ev-l"><div class="ev-qtag">The question</div><div class="ev-q">Same building, gym — was it planned?</div></div>
-        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">Everything was coincidence. I never planned any of it. Think calmly about whether someone with wrong intentions would stay this patient, this quiet, this consistent for this long. The answer is clear if you think honestly.</div></div>
+        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">Everything was coincidence. I never planned any of it. Think calmly — would someone with wrong intentions stay this patient, this quiet, this consistent for this long? The answer is clear if you think honestly.</div></div>
       </div>
       <div class="ev">
         <div class="ev-l"><div class="ev-qtag">The question</div><div class="ev-q">The scooty — why?</div></div>
-        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">I reacted emotionally when I felt you were uncomfortable. Wrong action — I understand that now. I'm genuinely sorry. But the intention was never to hurt you. It was worry. I own that mistake completely, without excuses.</div></div>
+        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">I reacted emotionally when I felt you were uncomfortable. Wrong action — I understand that now. I'm genuinely sorry. The intention was never to hurt you. It was worry. I own that mistake completely, without excuses.</div></div>
       </div>
       <div class="ev">
         <div class="ev-l"><div class="ev-qtag">The question</div><div class="ev-q">Why months of silence?</div></div>
@@ -305,11 +356,11 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
       </div>
       <div class="ev">
         <div class="ev-l"><div class="ev-qtag">The question</div><div class="ev-q">If you cared — why never approach?</div></div>
-        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">I could have knocked on your door — same building. Spoken to you at the gym. Called you before you ever blocked me. Called until you did. I didn't do any of that. Not because I didn't care — because your safety and comfort mattered more to me than my need to be near you. That restraint is what understanding someone actually looks like.</div></div>
+        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">I could have knocked on your door — same building. Spoken to you at the gym. Called you before you ever blocked me. I didn't do any of that. Not because I didn't care — because your safety and comfort mattered more to me than my need to be near you. That restraint is what understanding someone actually looks like.</div></div>
       </div>
       <div class="ev">
         <div class="ev-l"><div class="ev-qtag">The question</div><div class="ev-q">How is that different from anyone else?</div></div>
-        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">Everyone else chases. Calls, shows up, pressures. I didn't — not because I had no feelings, but because I understood you enough to know your peace mattered more than my need to be near you. If I didn't value you deeply, why would I hold back that much?</div></div>
+        <div class="ev-r"><div class="ev-atag">The truth</div><div class="ev-a">Everyone else chases. Calls, shows up, pressures. I didn't — because I understood you enough to know your peace mattered more than my need to be near you. If I didn't value you deeply, why would I hold back that much?</div></div>
       </div>
     </div>
 
@@ -322,10 +373,19 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
       Just think calmly for 10 minutes — not for me, for yourself.
       <small>The proof of my intention isn't in what I did. It's in everything I chose not to do — even when I easily could have. That's the clearest truth I can show you.</small>
     </div>
+
+    <!-- 9 MONTHS -->
+    <div class="nine-card">
+      <div class="nine-num">9</div>
+      <div class="nine-unit">months of silence</div>
+      <p>Almost 9 months. Not one forced call. Not one message demanding a reply. Just someone who cared enough to wait — quietly, patiently — because your peace mattered more than my need for an answer.</p>
+      <p>Most people would have moved on. Most would have shown up, called repeatedly, sent angry messages. I didn't do any of that. I gave you 9 months of space — not because I stopped caring, but because I understood that forcing something is not the same as deserving it.</p>
+      <p>Think about what 9 months of quiet patience — from someone who genuinely cares — actually means.</p>
+    </div>
   </div>
 </section>
 
-<!-- S3 — WHO I AM -->
+<!-- S3 -->
 <section class="sec" id="s3" style="background:var(--bg)">
   <div class="gn">III</div>
   <div class="reveal">
@@ -333,49 +393,42 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
     <h2 class="sh">I was wrong<br><em>in how I showed up.</em></h2>
     <p class="ssub">Owning mistakes clearly. And showing who I actually am — through what's changed.</p>
 
-    <p class="bt">From the day we started talking properly — I changed. Not because you forced me. Because I wanted to be the kind of person you feel safe and comfortable with. I changed in the way that I hoped you'd feel respected and understood.</p>
+    <p class="bt">From the day we started talking properly — I changed. Not because you forced me. Because I wanted to be the kind of person you feel safe and comfortable with.</p>
 
-    <div style="background:var(--gbg);border:1px solid var(--gbdr);border-radius:6px;
-      padding:22px 28px;margin:0 0 24px;max-width:620px">
-      <p style="font-size:15px;line-height:1.9;font-weight:300;color:var(--ink);
-        font-family:inherit;margin-bottom:10px">
-        You might look at everything and think — <em>"this is just giving up, this is torchal."</em> But that's not thinking deeply. Think calmly. Think without the noise. And underneath it — you'll find the love and care that's been there the whole time.
+    <div style="background:var(--rbg);border:1px solid var(--rbd);border-radius:6px;
+      padding:22px 28px;margin:0 0 24px;max-width:640px">
+      <p style="font-size:15px;line-height:1.9;font-weight:300;color:var(--ink);margin-bottom:10px">
+        You might look at everything and think — <em style="color:var(--pink)">"this is just giving up, this is torchal."</em> But that's not thinking deeply. Think calmly. Think without the noise. And underneath it — you'll find the love and care that's been there the whole time.
       </p>
-      <p style="font-size:15px;line-height:1.9;font-weight:300;color:var(--ink2);font-family:inherit">
+      <p style="font-size:15px;line-height:1.9;font-weight:300;color:var(--ink2)">
         Even in the middle of your most difficult situation — if I was there, I would have reacted the same way. I would have stood with you in it. Not fixed it. Not judged it. Just been there. I respect everything about your situation. I respect you.
       </p>
     </div>
 
     <div class="ao-wrap" id="ao1">
-      <div class="ao m">
-        <div class="ao-tag">I accept — fully</div>
+      <div class="ao m"><div class="ao-tag">I accept — fully</div>
         <div class="ao-title">Over-emotional behaviour</div>
-        <div class="ao-text">Calls, expectations, the marriage topic, emotional pressure — I understand how heavy that was for you. I'm not here to justify any of it. It was wrong and I accept that, genuinely, without argument.</div>
+        <div class="ao-text">Calls, expectations, marriage topic, emotional pressure — I understand now how heavy that was for you. I'm not justifying any of it. It was wrong and I accept that, genuinely, without argument.</div>
       </div>
-      <div class="ao m">
-        <div class="ao-tag">I accept — fully</div>
+      <div class="ao m"><div class="ao-tag">I accept — fully</div>
         <div class="ao-title">Making distance harder</div>
-        <div class="ao-text">Your silence and distance made complete sense. Fear and discomfort around closeness — given everything you've been through — is natural. I made it harder instead of easier. That's on me.</div>
+        <div class="ao-text">Your silence and distance made complete sense. Fear and discomfort around closeness is natural. I made it harder instead of easier. That's on me, and I understand it now.</div>
       </div>
-      <div class="ao o">
-        <div class="ao-tag">Who I am now</div>
+      <div class="ao o"><div class="ao-tag">Who I am now</div>
         <div class="ao-title">No pressure — ever</div>
-        <div class="ao-text">No daily messages, no calls, no commitment topic. Even if you stay silent — I will always respect that. Your inner peace is more important to me than my presence in your life. That's the honest truth.</div>
+        <div class="ao-text">No daily messages, no calls, no commitment topic. Even if you stay silent — I will always respect that. Your inner peace is more important to me than my presence in your life.</div>
       </div>
-      <div class="ao o">
-        <div class="ao-tag">Who I am now</div>
+      <div class="ao o"><div class="ao-tag">Who I am now</div>
         <div class="ao-title">I stay when things get hard</div>
         <div class="ao-text">When things become complicated or emotional — I won't walk away. I may get tired. But I won't give up on you. Not because I have no choice, but because you are someone I genuinely chose.</div>
       </div>
-      <div class="ao o">
-        <div class="ao-tag">Who I am now</div>
+      <div class="ao o"><div class="ao-tag">Who I am now</div>
         <div class="ao-title">Not perfect — but never fake</div>
-        <div class="ao-text">I'm not great at relationships. But I never cheat. I never lie. Honest relationships built on truth are the only kind worth having. I've never thought about being fake with you for even a second.</div>
+        <div class="ao-text">I'm not great at relationships. But I never cheat. I never lie. I've never thought about being fake with you for even a second. That's who I am.</div>
       </div>
-      <div class="ao o">
-        <div class="ao-tag">Who I am now</div>
+      <div class="ao o"><div class="ao-tag">Who I am now</div>
         <div class="ao-title">Your peace — my only concern</div>
-        <div class="ao-text">I worry about causing problems for you — with your family, your sister, anyone close to you. That fear is real for me. The last thing I want is for caring about you to become a source of difficulty in your life.</div>
+        <div class="ao-text">I worry about causing problems for you — with your family, your sister, anyone close to you. The last thing I want is for caring about you to become a source of difficulty in your life.</div>
       </div>
     </div>
 
@@ -386,45 +439,44 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
   </div>
 </section>
 
-<!-- S4 — I'M READY -->
+<!-- S4 -->
 <section class="sec" id="s4" style="background:var(--bg2)">
   <div class="gn">IV</div>
   <div class="reveal">
     <div class="clbl"><span class="clbl-n">04</span><div class="clbl-line"></div><span class="clbl-t">I'm ready — for all of it</span></div>
-    <h2 class="sh">Not the easy version of you.<br><em>This reality. Every part.</em></h2>
+    <h2 class="sh">Not the easy version.<br><em>This reality. Every part.</em></h2>
     <p class="ssub">This is what standing with you actually looks like — specifically, not generally.</p>
 
     <div class="sg c2" id="sg2">
-      <div class="sc">
-        <div class="sc-icon">🤝</div>
+      <div class="sc"><div class="sc-icon">🤝</div>
         <div class="sc-title">Family — always</div>
-        <div class="sc-text">No family support — I'll always stand with you. Not sometimes. You don't have to carry that alone while I'm present in your life. Think about it — you won't even need to.</div>
+        <div class="sc-text">No family support — I'll always stand with you. Not sometimes. You don't have to carry that alone while I'm present in your life.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">🌱</div>
+      <div class="sc"><div class="sc-icon">🌱</div>
         <div class="sc-title">Career — together</div>
-        <div class="sc-text">We're in the same domain — both our careers, we grow together. Same challenges, same direction. We handle it step by step, side by side. I won't add pressure. I'll work alongside you, always.</div>
+        <div class="sc-text">We're in the same domain — both our careers, we grow together. Same challenges, same direction. Step by step, side by side. Always.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">💙</div>
+      <div class="sc"><div class="sc-icon">💙</div>
         <div class="sc-title">Health — I'll stay</div>
         <div class="sc-text">Whenever you're not okay — I'll stay. Without conditions, without judgment, without needing a reason. Just present in the way that actually helps.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">🍽️</div>
+      <div class="sc"><div class="sc-icon">🍽️</div>
         <div class="sc-title">Daily life</div>
-        <div class="sc-text">Even cooking — I'll take care of it so it never feels like a burden. The small daily things that pile up quietly — those are mine to handle too. You shouldn't have to feel regret about that.</div>
+        <div class="sc-text">Even cooking — I'll take care of it so it never feels like a burden. The small daily things that quietly pile up — those are mine to handle too.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">🐾</div>
+      <div class="sc"><div class="sc-icon">🐾</div>
         <div class="sc-title">Bheem</div>
-        <div class="sc-text">He matters to you, so he matters to me. I'd care for him the same way I care about everything important to you — completely, without condition.</div>
+        <div class="sc-text">He matters to you, so he matters to me. I'd care for him completely, without condition. That won't change.</div>
       </div>
-      <div class="sc">
-        <div class="sc-icon">🌸</div>
+      <div class="sc"><div class="sc-icon">🌸</div>
         <div class="sc-title">Your peace — above everything</div>
-        <div class="sc-text">I will never put you in a situation that costs you your peace. Not to see me, not to respond, not to justify how you feel. Your stability comes before my presence — always.</div>
+        <div class="sc-text">I will never put you in a situation that costs you your peace. Your stability comes before my presence in your life — always, without exception.</div>
       </div>
+    </div>
+
+    <div class="pq" data-pq>
+      When will you give me the chance to travel this journey with you?
+      <small>When that day comes — when you let me walk through life beside you — then you'll truly see how much I love and care for you. Not in words. In how I show up, every single day.</small>
     </div>
 
     <div class="pq" data-pq>
@@ -434,20 +486,23 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
   </div>
 </section>
 
-<!-- S5 — FROM MY SOUL -->
+<!-- S5 -->
 <section class="sec" id="s5">
   <div class="f-in reveal" style="text-align:center;margin:0 auto">
     <div class="f-tag">From my soul — only for you</div>
     <h2 class="f-h">I'm not asking<br><em>for much at all.</em></h2>
 
     <p class="f-p">No commitment. No daily conversations. No plans together.</p>
-    <p class="f-p" style="font-family:'Cormorant',serif;font-style:italic;
-      font-size:clamp(19px,3vw,27px);color:var(--gold);line-height:1.6">
+    <p class="f-p" style="font-family:'Fraunces',serif;font-style:italic;font-weight:700;
+      font-size:clamp(22px,3.5vw,34px);
+      background:linear-gradient(135deg,var(--rose),var(--pink));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      line-height:1.5">
       Just talk to me once.<br>That's all I ask.
     </p>
 
-    <div style="max-width:480px;margin:22px auto;background:var(--card);
-      border:1px solid var(--bd);border-radius:6px;padding:24px 28px;
+    <div style="max-width:500px;margin:22px auto;background:var(--card);
+      border:1px solid var(--bd);border-radius:8px;padding:26px 30px;
       text-align:left;box-shadow:var(--sh)">
       <p style="font-size:14.5px;line-height:1.9;font-weight:300;color:var(--ink2);margin-bottom:12px">
         From the very first time I met you — I decided I couldn't leave. Not because of anything you said or did. Just because of who you are.
@@ -460,41 +515,27 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
       </p>
     </div>
 
-    <div class="pq" data-pq" style="text-align:left;margin:22px auto;max-width:480px">
-      When will you give me the chance to travel this journey with you?
-      <small>When that day comes — when you let me walk through life beside you — then you'll truly see how much I love and care for you. Not in words. In how I show up, every single day.</small>
-    </div>
-
     <div class="decl reveal">
       <p class="decl-pre">Think whatever you want. Be angry. Say things that hurt.</p>
       <p class="decl-main">But leaving you —<br>that I simply cannot do.</p>
       <p class="decl-note">Not because I have no choice. Because you matter to me in a way that doesn't switch off — no matter what you decide, no matter how much time passes.</p>
     </div>
 
-    <div class="rule" style="max-width:160px;margin:24px auto"><span>—</span></div>
+    <div class="rule" style="max-width:160px;margin:26px auto"><span>—</span></div>
 
     <p class="f-p dim" style="margin-bottom:22px">This is not a partner making demands.<br>This is a friend — who sees you, cares genuinely,<br>and asks for nothing except to be understood.</p>
 
     <div class="poem reveal">
-      <div class="poem-row">
-        <span class="poem-tag">One advice</span>
-        <span class="poem-val">Take care of yourself.</span>
-      </div>
-      <div class="poem-row">
-        <span class="poem-tag">One request</span>
-        <span class="poem-val">Don't forget me.</span>
-      </div>
-      <div class="poem-row">
-        <span class="poem-tag">One wish</span>
-        <span class="poem-val">Always be happy.</span>
-      </div>
-      <div class="poem-row" style="padding-top:5px;border-top:1px solid var(--bd)">
+      <div class="poem-row"><span class="poem-tag">One advice</span><span class="poem-val">Take care of yourself.</span></div>
+      <div class="poem-row"><span class="poem-tag">One request</span><span class="poem-val">Don't forget me.</span></div>
+      <div class="poem-row"><span class="poem-tag">One wish</span><span class="poem-val">Always be happy.</span></div>
+      <div class="poem-row" style="padding-top:6px;border-top:1px solid var(--bd)">
         <span class="poem-tag">One truth</span>
         <span class="poem-val gold">I will always love you.</span>
       </div>
     </div>
 
-    <div class="f-neeya" style="margin-top:28px">
+    <div class="f-neeya" style="margin-top:30px">
       Be yourself, Sowndarya. Always.
       <small>I never want you to feel hurt or regret because of me. That will never change.</small>
     </div>
@@ -509,7 +550,6 @@ footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--
 </section>
 
 </main>
-
 <footer style="opacity:0" id="footer">
   <p>written with honesty &nbsp;·&nbsp; from a pure place &nbsp;·&nbsp; meant only for her</p>
 </footer>
@@ -524,9 +564,8 @@ nm.split('').forEach((ch,i)=>{
 setTimeout(()=>{
   const l=document.getElementById('istmt'),n=document.getElementById('inote'),b=document.getElementById('ibtn');
   l.classList.add('show');
-  setTimeout(()=>{n.classList.add('show');setTimeout(()=>b.classList.add('show'),400);},600);
+  setTimeout(()=>{n.classList.add('show');setTimeout(()=>b.classList.add('show'),400)},600);
 },800+nm.length*110+300);
-
 function enter(){
   document.getElementById('intro').classList.add('out');
   setTimeout(()=>{
@@ -537,7 +576,6 @@ function enter(){
     init();
   },900);
 }
-
 function init(){
   window.addEventListener('scroll',()=>{
     const st=window.scrollY,dh=document.documentElement.scrollHeight-window.innerHeight;
