@@ -4,27 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>🥺💌 Something I never said — just read this once, please</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg1:#06101e;--bg2:#0a1828;--bg3:#0d1e30;
-  --tx:#bfcfe8;--tx2:#7a96b8;--tx3:rgba(191,207,232,0.35);
-  --wh:#eef4ff;--ic:#d6e6fa;
-  --bd:rgba(191,207,232,0.1);--bd2:rgba(191,207,232,0.2);
-  --rose:#e8829a;--rose2:#c45a72;--gold:#d4a85c;--blu:#4a90d9;
+  --bg1:#fdf8f2;--bg2:#f7f0e6;--bg3:#f0e6d8;
+  --tx:#3d2c1e;--tx2:rgba(61,44,30,0.6);--tx3:rgba(61,44,30,0.35);
+  --wh:#1e1209;--ic:#5c3d2e;
+  --bd:rgba(61,44,30,0.1);--bd2:rgba(61,44,30,0.18);
+  --rose:#c9626e;--rose2:#a8404c;--gold:#c9963a;--blu:#b06a7a;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg1);font-family:'Inter',sans-serif;color:var(--tx);overflow-x:hidden}
+body{background:var(--bg1);font-family:'Inter',sans-serif;color:var(--tx);overflow-x:hidden;line-height:1.75}
 
 /* noise overlay */
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.025;
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.012;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* ══ PROGRESS BAR ══ */
 #bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:1000;
   background:linear-gradient(90deg,var(--rose2),var(--rose),var(--gold));
-  box-shadow:0 0 12px rgba(232,130,154,0.5);transition:width .1s linear}
+  box-shadow:0 0 12px rgba(201,98,110,0.4);transition:width .1s linear}
 
 /* ══════════════════════════════════════
    INTRO / LANDING PAGE
@@ -36,8 +36,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
 #intro.out{opacity:0;transform:scale(1.02);pointer-events:none}
 
 .wm{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:'Cormorant Garamond',serif;font-weight:700;
-  font-size:clamp(80px,20vw,200px);color:rgba(191,207,232,0.03);
+  font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(80px,20vw,200px);color:rgba(61,44,30,0.04);
   white-space:nowrap;pointer-events:none;z-index:0;letter-spacing:-4px;
   animation:wmpulse 6s ease-in-out infinite}
 @keyframes wmpulse{0%,100%{opacity:.5}50%{opacity:1}}
@@ -60,7 +60,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
   opacity:0;transition:opacity .7s ease;pointer-events:none}
 .cslide.on{opacity:1;pointer-events:auto}
 .csub{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--tx3)}
-.cmain{font-family:'Cormorant Garamond',serif;font-style:italic;
+.cmain{font-family:'Playfair Display',serif;font-style:italic;
   font-size:clamp(20px,3.5vw,28px);color:var(--wh);line-height:1.2}
 .cmain em{color:var(--rose)}
 .cdots{display:flex;gap:7px;justify-content:center;margin-bottom:20px}
@@ -70,7 +70,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
 
 /* name */
 .namerow{margin:4px 0 16px;line-height:1}
-.nl{display:inline-block;font-family:'Cormorant Garamond',serif;font-weight:700;
+.nl{display:inline-block;font-family:'Playfair Display',serif;font-weight:700;
   font-size:clamp(60px,13vw,130px);letter-spacing:-3px;
   opacity:0;animation:ldrop .5s ease forwards}
 @keyframes ldrop{0%{opacity:0;transform:translateY(-18px);color:var(--rose)}
@@ -92,7 +92,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
   background:linear-gradient(90deg,var(--rose2),var(--rose),var(--gold))}
 .c-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;
   color:var(--rose);margin-bottom:12px}
-.c-text{font-family:'Cormorant Garamond',serif;font-style:italic;
+.c-text{font-family:'Playfair Display',serif;font-style:italic;
   font-size:clamp(17px,2.5vw,22px);color:var(--wh);line-height:1.75;margin-bottom:10px}
 .c-text em{color:var(--rose)}
 .c-note{font-size:13px;font-weight:300;color:var(--tx2);line-height:1.8}
@@ -100,7 +100,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
 /* soul intro */
 .soul-intro{width:100%;max-width:600px;margin:14px auto;
   border-left:3px solid var(--gold);padding:18px 22px;
-  background:rgba(212,168,92,0.05);text-align:left;
+  background:rgba(201,98,110,0.04);text-align:left;
   opacity:0;animation:fiu .9s ease forwards 1.8s}
 .soul-intro p{font-size:14px;line-height:1.9;font-weight:300;color:var(--tx);margin-bottom:10px}
 .soul-intro p:last-child{margin:0;color:var(--tx2);font-style:italic;font-size:13px}
@@ -117,7 +117,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
 .btn-s{padding:13px 40px;border:1px solid var(--bd2);background:transparent;
   color:var(--tx);font-family:'Inter',sans-serif;font-size:10px;
   letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s}
-.btn-s:hover{border-color:var(--blu);color:var(--wh);background:rgba(74,144,217,0.1)}
+.btn-s:hover{border-color:var(--rose);color:var(--rose2);background:rgba(201,98,110,0.06)}
 @keyframes fiu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 /* ══════════════════════════════════════
@@ -125,12 +125,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
 ══════════════════════════════════════ */
 #nav{position:fixed;top:0;left:0;right:0;z-index:800;height:56px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 5%;background:rgba(6,16,30,0.95);
+  padding:0 5%;background:rgba(253,248,242,0.97);
   border-bottom:1px solid var(--bd);backdrop-filter:blur(16px);
   opacity:0;pointer-events:none;transition:opacity .4s}
 #nav.on{opacity:1;pointer-events:auto}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:17px;
-  font-style:italic;color:var(--ic);cursor:pointer;font-weight:600}
+.nav-logo{font-family:'Playfair Display',serif;font-size:17px;
+  font-style:italic;color:var(--rose2);cursor:pointer;font-weight:700}
 .nav-links{display:flex;gap:24px}
 .nav-links a{background:none;border:none;cursor:pointer;
   font-family:'Inter',sans-serif;font-size:10px;font-weight:500;
@@ -141,7 +141,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
 .nav-hbg{display:none;background:none;border:none;cursor:pointer;
   font-size:20px;color:var(--tx);padding:4px}
 .mob-menu{display:none;position:fixed;top:56px;left:0;right:0;z-index:799;
-  background:rgba(10,24,40,0.98);border-bottom:1px solid var(--bd);
+  background:rgba(253,248,242,0.99);border-bottom:1px solid var(--bd);
   flex-direction:column;padding:8px 0}
 .mob-menu.on{display:flex}
 .mob-menu a{padding:14px 28px;font-family:'Inter',sans-serif;font-size:11px;
@@ -160,21 +160,21 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
   flex-direction:column;justify-content:center;
   overflow:hidden;padding:100px 8% 80px}
 .sec-inner{max-width:880px;width:100%}
-.gn{font-family:'Cormorant Garamond',serif;font-weight:700;
+.gn{font-family:'Playfair Display',serif;font-weight:700;
   font-size:clamp(160px,26vw,300px);line-height:1;letter-spacing:-8px;
-  color:rgba(191,207,232,0.03);position:absolute;right:-20px;
+  color:rgba(61,44,30,0.04);position:absolute;right:-20px;
   top:50%;transform:translateY(-50%);pointer-events:none;user-select:none}
 
 .clbl{display:flex;align-items:center;gap:12px;margin-bottom:22px}
-.clbl-num{font-family:'Cormorant Garamond',serif;font-style:italic;
+.clbl-num{font-family:'Playfair Display',serif;font-style:italic;
   font-size:12px;color:var(--tx2)}
 .clbl-line{width:28px;height:1px;background:var(--bd2)}
 .clbl-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--tx2)}
 
-.sh{font-family:'Cormorant Garamond',serif;font-weight:700;
-  font-size:clamp(36px,5.5vw,68px);line-height:1.0;letter-spacing:-1.5px;
+.sh{font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(42px,6.5vw,82px);line-height:1.0;letter-spacing:-2px;
   color:var(--wh);margin-bottom:14px}
-.sh em{font-style:italic;color:var(--ic)}
+.sh em{font-style:italic;color:var(--rose2)}
 .ssub{font-size:15px;font-weight:300;color:var(--tx2);
   margin-bottom:36px;line-height:1.65;max-width:460px}
 
@@ -184,16 +184,16 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
 .bt.dim{color:var(--tx2)}
 
 /* pull quotes */
-.pq{border-left:3px solid rgba(191,207,232,0.2);
+.pq{border-left:3px solid rgba(201,98,110,0.25);
   padding:20px 28px;margin:28px 0;
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
-  font-size:clamp(18px,2.4vw,23px);color:var(--ic);line-height:1.65;
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:300;
+  font-size:clamp(18px,2.4vw,23px);color:var(--rose2);line-height:1.65;
   max-width:680px;position:relative;
   opacity:0;transform:translateX(-10px);
   transition:opacity .8s ease,transform .8s ease}
 .pq.vis{opacity:1;transform:translateX(0)}
 .pq::before{content:'"';position:absolute;top:-8px;left:20px;
-  font-size:52px;color:rgba(191,207,232,0.1);line-height:1}
+  font-size:52px;color:rgba(201,98,110,0.1);line-height:1}
 .pq small{display:block;margin-top:10px;font-family:'Inter',sans-serif;
   font-size:12px;font-style:normal;font-weight:300;color:var(--tx2)}
 
@@ -207,13 +207,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
   margin:28px 0;max-width:880px}
 .sg.c3{grid-template-columns:1fr 1fr 1fr}
 .sg.c2{grid-template-columns:1fr 1fr}
-.sc{background:var(--bg2);padding:24px 22px;
+.sc{background:#ffffff;padding:24px 22px;
   opacity:0;transform:translateY(10px);
   transition:opacity .5s ease,transform .5s ease,background .2s}
 .sc.vis{opacity:1;transform:translateY(0)}
 .sc:hover{background:var(--bg3)}
 .sc-icon{font-size:18px;margin-bottom:10px}
-.sc-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;
+.sc-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;
   color:var(--wh);margin-bottom:8px}
 .sc-text{font-size:13px;line-height:1.8;font-weight:300;color:var(--tx2)}
 
@@ -224,40 +224,40 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
   opacity:0;transform:translateY(8px);
   transition:opacity .55s ease,transform .55s ease}
 .ev.vis{opacity:1;transform:translateY(0)}
-.ev-l{background:var(--bg2);padding:22px 24px;border-right:1px solid var(--bd);
+.ev-l{background:#ffffff;padding:22px 24px;border-right:1px solid var(--bd);
   transition:background .2s}
-.ev-r{background:var(--bg2);padding:22px 24px;transition:background .2s}
-.ev:hover .ev-l,.ev:hover .ev-r{background:var(--bg3)}
-.ev:hover .ev-r{background:rgba(74,144,217,0.05)}
+.ev-r{background:#ffffff;padding:22px 24px;transition:background .2s}
+.ev:hover .ev-l,.ev:hover .ev-r{background:var(--f7f0e6)}
+.ev:hover .ev-r{background:rgba(201,98,110,0.04)}
 .ev-qtag,.ev-atag{font-size:9px;letter-spacing:3px;text-transform:uppercase;
   margin-bottom:6px;font-weight:500}
-.ev-qtag{color:var(--tx3)}.ev-atag{color:var(--blu)}
-.ev-q{font-family:'Cormorant Garamond',serif;font-style:italic;
+.ev-qtag{color:var(--tx3)}.ev-atag{color:var(--rose2)}
+.ev-q{font-family:'Playfair Display',serif;font-style:italic;
   font-size:15px;color:var(--tx2);line-height:1.4}
 .ev-a{font-size:13px;line-height:1.85;font-weight:300;color:var(--tx)}
 
 /* ══ ACCEPT/OFFER ══ */
 .ao-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;
   background:var(--bd);border:1px solid var(--bd);margin:28px 0;max-width:880px}
-.ao{background:var(--bg2);padding:22px;
+.ao{background:#ffffff;padding:22px;
   opacity:0;transform:translateY(10px);
   transition:opacity .5s ease,transform .5s ease,background .2s}
 .ao.vis{opacity:1;transform:translateY(0)}.ao:hover{background:var(--bg3)}
 .ao-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;font-weight:500}
-.ao.m .ao-tag{color:#e87878}.ao.o .ao-tag{color:var(--blu)}
-.ao-title{font-family:'Cormorant Garamond',serif;font-size:16px;
+.ao.m .ao-tag{color:#e87878}.ao.o .ao-tag{color:var(--rose2)}
+.ao-title{font-family:'Playfair Display',serif;font-size:16px;
   font-weight:600;color:var(--wh);margin-bottom:8px}
 .ao-text{font-size:13px;line-height:1.8;font-weight:300;color:var(--tx2)}
 
 /* ══ 9 MONTHS ══ */
-.nine{background:var(--bg2);border:1px solid var(--bd);
+.nine{background:#ffffff;border:1px solid var(--bd);
   padding:30px 34px;margin:28px 0;max-width:700px;position:relative;overflow:hidden}
 .nine::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
-  background:linear-gradient(to bottom,var(--blu),transparent)}
-.nine-n{font-family:'Cormorant Garamond',serif;font-size:90px;font-weight:700;
-  color:var(--blu);opacity:.08;position:absolute;right:14px;top:8px;line-height:1}
+  background:linear-gradient(to bottom,var(--rose),transparent)}
+.nine-n{font-family:'Playfair Display',serif;font-size:90px;font-weight:700;
+  color:var(--rose);opacity:.12;position:absolute;right:14px;top:8px;line-height:1}
 .nine-head{font-size:9px;letter-spacing:4px;text-transform:uppercase;
-  color:var(--blu);margin-bottom:14px}
+  color:var(--rose2);margin-bottom:14px}
 .nine p{font-size:14px;line-height:1.9;font-weight:300;color:var(--tx);margin-bottom:12px}
 .nine p:last-child{margin:0;font-style:italic;color:var(--tx2);font-size:13px}
 
@@ -266,37 +266,37 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opac
 .f5{max-width:640px;margin:0 auto;text-align:center}
 .f5-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;
   color:var(--tx2);margin-bottom:22px}
-.f5-h{font-family:'Cormorant Garamond',serif;font-weight:700;
+.f5-h{font-family:'Playfair Display',serif;font-weight:700;
   font-size:clamp(32px,5.5vw,58px);line-height:1.0;
   letter-spacing:-1.5px;color:var(--wh);margin-bottom:22px}
-.f5-h em{font-style:italic;color:var(--ic)}
+.f5-h em{font-style:italic;color:var(--rose2)}
 .f5-p{font-size:16px;line-height:2;font-weight:300;color:var(--tx);margin-bottom:14px}
 .f5-p em{color:var(--wh)}.f5-p.dim{color:var(--tx2);font-size:14px}
 
-.decl{background:var(--bg3);border:1px solid var(--bd2);
+.decl{background:#ffffff;border:1px solid var(--bd2);
   padding:28px 32px;margin:24px auto;max-width:560px;text-align:left}
 .decl p{font-size:15px;line-height:1.95;font-weight:300;color:var(--tx);margin-bottom:12px}
 .decl p:last-child{margin:0;color:var(--tx2);font-style:italic;font-size:13px}
 
-.soul-f{border:1px solid rgba(212,168,92,0.25);padding:26px 30px;
-  margin:22px auto;max-width:560px;background:rgba(212,168,92,0.04);text-align:left}
+.soul-f{border:1px solid rgba(201,98,110,0.2);padding:26px 30px;
+  margin:22px auto;max-width:560px;background:rgba(201,98,110,0.04);text-align:left}
 .soul-f p{font-size:15px;line-height:1.95;font-weight:300;color:var(--tx);margin-bottom:12px}
 .soul-f p:last-child{margin:0;color:var(--tx2);font-style:italic;font-size:13px}
 .soul-f em{color:var(--gold)}
 
 .poem{border:1px solid var(--bd2);padding:32px 36px;
-  max-width:380px;margin:28px auto;background:var(--bg3);text-align:left}
+  max-width:380px;margin:28px auto;background:#ffffff;text-align:left}
 .poem-row{margin-bottom:18px}
 .poem-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;
   color:var(--tx3);margin-bottom:5px}
-.poem-val{font-family:'Cormorant Garamond',serif;font-style:italic;
+.poem-val{font-family:'Playfair Display',serif;font-style:italic;
   font-size:21px;color:var(--wh)}
-.poem-val.rose{font-size:24px;color:var(--rose)}
+.poem-val.rose{font-size:24px;color:var(--rose2)}
 
 .sig-wrap{margin-top:36px;padding-top:22px;border-top:1px solid var(--bd);display:inline-block}
 .sig-note{font-size:12px;color:var(--tx2);font-style:italic;margin-bottom:8px}
-.sig{font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:32px;font-weight:600;color:var(--wh)}
+.sig{font-family:'Playfair Display',serif;font-style:italic;
+  font-size:32px;font-weight:600;color:var(--rose2)}
 
 /* ══ REVEAL ══ */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .85s ease,transform .85s ease}
@@ -345,48 +345,52 @@ footer p{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--t
   <div class="wm">Sowndarya</div>
   <div class="intro-body">
 
-    <div class="i-warn">Please read this only when your mind is calm</div>
+    <!-- LEFT COLUMN -->
+    <div class="intro-left">
+      <div class="i-warn">Read only when your mind is calm</div>
 
-    <!-- Carousel -->
-    <div class="carousel-box">
-      <div class="carousel">
-        <div class="cslide on"><div class="csub">What brought me here</div><div class="cmain">I didn't love you randomly —<br><em>I understood you first</em></div></div>
-        <div class="cslide"><div class="csub">What I noticed</div><div class="cmain">When we talked, you were<br><em>calm. happy. at peace.</em></div></div>
-        <div class="cslide"><div class="csub">What I gave</div><div class="cmain">9 months of patient silence —<br><em>because your peace mattered more</em></div></div>
-        <div class="cslide"><div class="csub">What I know</div><div class="cmain">Something in you changed me —<br><em>I think you felt it too</em></div></div>
-        <div class="cslide"><div class="csub">My only ask</div><div class="cmain">Not commitment. Not a choice.<br><em>Just let me be there.</em></div></div>
+      <!-- Carousel -->
+      <div class="carousel-box">
+        <div class="carousel">
+          <div class="cslide on"><div class="csub">What brought me here</div><div class="cmain">I didn't love you randomly —<br><em>I understood you first</em></div></div>
+          <div class="cslide"><div class="csub">What I noticed</div><div class="cmain">When we talked, you were<br><em>calm. happy. at peace.</em></div></div>
+          <div class="cslide"><div class="csub">What I gave</div><div class="cmain">9 months of patient silence —<br><em>because your peace mattered more</em></div></div>
+          <div class="cslide"><div class="csub">What I know</div><div class="cmain">Something in you changed me —<br><em>I think you felt it too</em></div></div>
+          <div class="cslide"><div class="csub">My only ask</div><div class="cmain">Not commitment. Not a choice.<br><em>Just let me be there.</em></div></div>
+        </div>
+        <div class="cdots">
+          <div class="cdot on" onclick="toSlide(0)"></div>
+          <div class="cdot" onclick="toSlide(1)"></div>
+          <div class="cdot" onclick="toSlide(2)"></div>
+          <div class="cdot" onclick="toSlide(3)"></div>
+          <div class="cdot" onclick="toSlide(4)"></div>
+        </div>
       </div>
-      <div class="cdots">
-        <div class="cdot on" onclick="toSlide(0)"></div>
-        <div class="cdot" onclick="toSlide(1)"></div>
-        <div class="cdot" onclick="toSlide(2)"></div>
-        <div class="cdot" onclick="toSlide(3)"></div>
-        <div class="cdot" onclick="toSlide(4)"></div>
+
+      <!-- Animated name -->
+      <div class="namerow" id="nameEl"></div>
+
+      <p class="i-note">If you're angry right now, come back when your mind is quiet.</p>
+
+      <div class="i-btns">
+        <button class="btn-p" onclick="enter()">Read the full letter</button>
+        <button class="btn-s" onclick="enter(true)">Start from beginning</button>
       </div>
     </div>
 
-    <!-- Animated name -->
-    <div class="namerow" id="nameEl"></div>
+    <!-- RIGHT COLUMN -->
+    <div class="intro-right">
+      <div class="core-box">
+        <div class="c-label">My Only Ask</div>
+        <div class="c-text">I'm not asking for commitment.<br>I'm not asking you to choose me.<br><br><em>Let me be there when you need someone who truly understands you.</em></div>
+        <div class="c-note">Not just anyone understands your nature, your silence, your character. I do. And that's worth something.</div>
+      </div>
 
-    <!-- Core statement -->
-    <div class="core-box">
-      <div class="c-label">My Only Ask</div>
-      <div class="c-text">I'm not asking for commitment.<br>I'm not asking you to choose me.<br><br><em>Let me be there when you need someone who truly understands you.</em></div>
-      <div class="c-note">Not just anyone understands your nature, your silence, your character. I do. And that's worth something.</div>
-    </div>
-
-    <!-- Soul block -->
-    <div class="soul-intro">
-      <p>Be yourself — that alone is why I can't leave you. Even if you never thought twice about me — <em>something in you changed me.</em></p>
-      <p>When we talked, I watched you become calm, happy, peaceful. Every single time. <em>That tells me I can give you that feeling.</em> For you to sleep easy, feel light, be at peace — that's why I've struggled this long and been this patient.</p>
-      <p>I will always stay. Always be right there — beside you.</p>
-    </div>
-
-    <p class="i-note">If you're angry right now, please come back when your mind is quiet. This deserves a calm heart.</p>
-
-    <div class="i-btns">
-      <button class="btn-p" onclick="enter()">Read the full letter</button>
-      <button class="btn-s" onclick="enter(true)">Start from the beginning</button>
+      <div class="soul-intro">
+        <p>Be yourself — that alone is why I can't leave you. <em>Something in you changed me.</em></p>
+        <p>When we talked, I watched you become calm, happy, peaceful. Every single time. <em>That tells me I can give you that feeling.</em> For you to sleep easy, feel light, be at peace — that's why I've been this patient.</p>
+        <p>I will always stay. Always be right there — beside you.</p>
+      </div>
     </div>
 
   </div>
@@ -580,7 +584,7 @@ footer p{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--t
     <h2 class="f5-h">I'm not asking<br><em>for much at all.</em></h2>
 
     <p class="f5-p">No commitment. No daily conversations. No plans together.</p>
-    <p class="f5-p" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;
+    <p class="f5-p" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
       font-size:clamp(22px,3.5vw,32px);color:var(--wh);line-height:1.5">
       Just talk to me once.<br>That's all I ask.
     </p>
@@ -599,7 +603,7 @@ footer p{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--t
 
     <div class="rule" style="max-width:100px;margin:28px auto"><span>—</span></div>
 
-    <p class="f5-p" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;
+    <p class="f5-p" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
       font-size:clamp(20px,3vw,28px);color:var(--wh);margin:0 auto 14px">
       But leaving you — that I simply cannot do.
     </p>
@@ -618,7 +622,7 @@ footer p{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--t
       </div>
     </div>
 
-    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
       font-size:clamp(22px,3.5vw,30px);color:var(--wh);margin-top:36px">
       Be yourself, Sowndarya. Always.
     </p>
@@ -629,7 +633,7 @@ footer p{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--t
       position:relative;text-align:left">
       <div style="position:absolute;top:0;left:0;right:0;height:2px;
         background:linear-gradient(90deg,var(--rose2),var(--rose),var(--gold))"></div>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;
+      <p style="font-family:'Playfair Display',serif;font-style:italic;
         font-size:clamp(18px,2.8vw,24px);color:var(--wh);line-height:1.7;margin-bottom:16px">
         Finally — just one time — I want to meet you and talk peacefully for 30 minutes.
       </p>
@@ -639,7 +643,7 @@ footer p{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--t
       <p style="font-size:15px;line-height:1.95;font-weight:300;color:var(--tx);margin-bottom:14px">
         I know what makes you happy and how to care for you properly. That's why not being able to talk to you anymore feels really painful for me.
       </p>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;
+      <p style="font-family:'Playfair Display',serif;font-style:italic;
         font-size:clamp(16px,2.2vw,20px);color:var(--tx2);line-height:1.7">
         It's okay maybe — I was expecting too much.
       </p>
@@ -681,7 +685,7 @@ const hi=[4,5,6,7,8];
   const s=document.createElement('span');
   s.className='nl'+(hi.includes(i)?' hi':'');
   s.textContent=ch;
-  s.style.fontFamily="'Cormorant Garamond',serif";
+  s.style.fontFamily="'Playfair Display',serif";
   s.style.animationDelay=(0.5+i*.1)+'s';
   document.getElementById('nameEl').appendChild(s);
 });
