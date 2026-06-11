@@ -385,7 +385,7 @@ footer p{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--t
 
 <!-- ══════════════ NAVBAR ══════════════ -->
 <nav id="nav">
-  <div class="nav-logo" onclick="go('s1')">Sowndarya</div>
+  <div class="nav-logo" onclick="goHome()" title="Back to home">← Sowndarya</div>
   <div class="nav-links">
     <a onclick="go('s1')" data-sec="s1">I See You</a>
     <a onclick="go('s2')" data-sec="s2">The Truth</a>
@@ -699,6 +699,19 @@ function initMain(){
   ['sg1','ev1','ao1','sg2'].forEach(id=>{
     const el=document.getElementById(id);if(el)so.observe(el);
   });
+}
+
+function goHome(){
+  window.scrollTo({top:0,behavior:'instant'});
+  document.getElementById('main').style.opacity='0';
+  document.getElementById('main').style.pointerEvents='none';
+  document.getElementById('footer').style.opacity='0';
+  document.getElementById('nav').classList.remove('on');
+  const intro=document.getElementById('intro');
+  intro.style.display='flex';
+  intro.classList.remove('out');
+  window.removeEventListener('scroll',onScroll);
+  document.getElementById('bar').style.width='0';
 }
 
 function onScroll(){
