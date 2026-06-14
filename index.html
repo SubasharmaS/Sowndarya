@@ -4,38 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Sowndarya</title>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Kalam:wght@300;400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --paper:#f5ead8;--paper2:#ede0c4;--paper3:#e8d5b0;
-  --ink:#1a1209;--ink2:rgba(26,18,9,0.62);--ink3:rgba(26,18,9,0.38);
-  --red:#8b2020;--blue:#1a3560;--stamp:#c0392b;
-  --bd:rgba(26,18,9,0.12);--bd2:rgba(26,18,9,0.22);
+  --paper:#ffffff;--paper2:#f7f9f7;--paper3:#eef3ee;
+  --ink:#0d1f0f;--ink2:rgba(13,31,15,0.6);--ink3:rgba(13,31,15,0.38);
+  --red:#1a3d25;--blue:#1a3d25;--stamp:#b8860b;
+  --green:#1a3d25;--green2:#2d6a4f;--gold:#b8860b;--gold2:#d4a85c;
+  --bd:rgba(13,31,15,0.1);--bd2:rgba(13,31,15,0.18);
 }
 html{scroll-behavior:smooth}
-body{background:var(--paper);font-family:'IM Fell English',serif;
+body{background:var(--paper);font-family:'Inter',sans-serif;
   color:var(--ink);overflow-x:hidden;line-height:1.8}
 
-/* ══ PAPER TEXTURE ══ */
+/* ══ CLEAN MINIMAL BG ══ */
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(26,18,9,0.04) 28px),
-    radial-gradient(ellipse 80% 60% at 30% 20%,rgba(180,130,60,0.08) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 70% at 70% 80%,rgba(150,100,40,0.06) 0%,transparent 60%)}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-  mix-blend-mode:multiply}
+    radial-gradient(ellipse 70% 60% at 0% 0%,rgba(26,61,37,0.04) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,rgba(184,134,11,0.04) 0%,transparent 60%)}
+body::after{content:'';display:none}
 
 /* ══ PROGRESS ══ */
 #bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:999;
-  background:linear-gradient(90deg,var(--red),#c0632b,var(--blue));
+  background:linear-gradient(90deg,var(--green),var(--gold),var(--green2));
   transition:width .1s linear}
 
 /* ══════════════════════════════
    LANDING PAGE
 ══════════════════════════════ */
-#intro{position:fixed;inset:0;z-index:900;background:var(--paper);
+#intro{position:fixed;inset:0;z-index:900;background:#ffffff;
   overflow-y:auto;transition:opacity 1s ease}
 #intro.out{opacity:0;pointer-events:none}
 
@@ -45,14 +43,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .para-flowers{position:fixed;inset:0;pointer-events:none;z-index:0;
   will-change:transform}
 
-/* coffee stain */
-.stain{position:fixed;width:180px;height:180px;border-radius:50%;
-  border:3px solid rgba(130,80,20,0.12);
-  box-shadow:inset 0 0 0 8px rgba(130,80,20,0.07),
-             inset 0 0 0 12px rgba(130,80,20,0.04);
-  pointer-events:none}
-.stain1{bottom:8%;right:6%;width:120px;height:120px}
-.stain2{top:5%;left:3%;width:80px;height:80px}
+
 
 .intro-body{position:relative;z-index:1;min-height:100vh;
   display:grid;grid-template-columns:1fr 1fr;
@@ -62,20 +53,20 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .intro-left{display:flex;flex-direction:column;gap:0}
 
 /* date stamp */
-.i-date{font-family:'Kalam',cursive;font-size:13px;color:var(--ink3);
+.i-date{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);
   margin-bottom:20px;display:flex;align-items:center;gap:10px;
   opacity:0;animation:fa .8s ease forwards .3s}
 .i-date::before,.i-date::after{content:'';flex:1;height:1px;
   background:var(--bd);max-width:40px}
 
 /* dear line */
-.i-dear{font-family:'Caveat',cursive;font-size:28px;color:var(--ink2);
+.i-dear{font-family:'Playfair Display',serif;font-style:italic;font-size:28px;font-weight:300;color:var(--ink2);
   margin-bottom:4px;opacity:0;animation:fa .8s ease forwards .6s}
 
 /* name */
 .namerow{line-height:.95;margin-bottom:16px}
 .nl{display:inline-block;font-family:'Caveat',cursive;font-weight:700;
-  font-size:clamp(56px,8vw,110px);letter-spacing:-1px;
+  font-size:clamp(66px,9.0vw,129px);letter-spacing:-1px;
   opacity:0;animation:inkdrop .6s ease forwards}
 @keyframes inkdrop{0%{opacity:0;transform:translateY(-10px) scale(1.1);color:var(--red)}
   50%{color:var(--red)}100%{opacity:1;transform:none;color:var(--ink)}}
@@ -85,7 +76,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 /* underline decoration */
 .name-underline{height:3px;max-width:320px;margin:0 0 20px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='6'%3E%3Cpath d='M0,3 Q25,0 50,3 Q75,6 100,3 Q125,0 150,3 Q175,6 200,3' stroke='%238b2020' stroke-width='2' fill='none' opacity='0.7'/%3E%3C/svg%3E") repeat-x center;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='6'%3E%3Cpath d='M0,3 Q25,0 50,3 Q75,6 100,3 Q125,0 150,3 Q175,6 200,3' stroke='%23b8860b' stroke-width='1.5' fill='none' opacity='0.8'/%3E%3C/svg%3E") repeat-x center;
   opacity:0;animation:fa .8s ease forwards 1.4s}
 
 /* carousel */
@@ -93,34 +84,34 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .cslide{position:absolute;inset:0;display:flex;flex-direction:column;
   justify-content:center;opacity:0;transition:opacity .7s ease;pointer-events:none;z-index:0}
 .cslide.on{opacity:1;pointer-events:auto;z-index:1}
-.csub{font-family:'Kalam',cursive;font-size:10px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--red);margin-bottom:6px;font-weight:700}
-.cmain{font-family:'Caveat',cursive;font-size:clamp(20px,3vw,28px);
+.csub{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600}
+.cmain{font-family:'Caveat',cursive;font-size:clamp(23px,3.4vw,33px);
   font-weight:700;color:var(--ink);line-height:1.3}
-.cmain em{color:var(--red);font-style:italic}
+.cmain em{color:var(--green);font-style:italic}
 .cdots{display:flex;gap:7px;margin-bottom:20px}
 .cdot{width:6px;height:6px;border-radius:50%;background:var(--bd2);
   cursor:pointer;transition:all .3s}
-.cdot.on{background:var(--red);width:20px;border-radius:3px}
+.cdot.on{background:var(--gold);width:20px;border-radius:3px}
 
 /* buttons */
 .i-btns{display:flex;gap:12px;flex-wrap:wrap;
   opacity:0;animation:fa .8s ease forwards 2.4s}
-.btn-p{padding:12px 30px;border:2px solid var(--ink);background:var(--ink);
-  color:var(--paper);font-family:'Kalam',cursive;font-size:14px;
+.btn-p{padding:12px 30px;border:1px solid var(--green);background:var(--green);
+  color:var(--paper);font-family:'Inter',sans-serif;font-size:13px;
   cursor:pointer;transition:all .3s;border-radius:2px}
-.btn-p:hover{background:transparent;color:var(--ink)}
-.btn-s{padding:12px 30px;border:2px solid var(--bd2);background:transparent;
-  color:var(--ink2);font-family:'Kalam',cursive;font-size:14px;
+.btn-p:hover{background:transparent;color:var(--green)}
+.btn-s{padding:12px 30px;border:1px solid var(--bd2);background:transparent;
+  color:var(--ink2);font-family:'Inter',sans-serif;font-size:13px;
   cursor:pointer;transition:all .3s;border-radius:2px}
-.btn-s:hover{border-color:var(--ink);color:var(--ink)}
+.btn-s:hover{border-color:var(--green);color:var(--green)}
 
 /* RIGHT */
 .intro-right{display:flex;flex-direction:column;gap:18px}
 
 /* wax seal */
 .seal{width:72px;height:72px;border-radius:50%;
-  background:radial-gradient(circle at 40% 35%,#d44,#8b1a1a);
+  background:radial-gradient(circle at 40% 35%,var(--gold2),var(--gold));
   display:flex;align-items:center;justify-content:center;
   font-family:'Caveat',cursive;font-size:11px;color:rgba(255,220,200,0.85);
   font-weight:700;letter-spacing:2px;text-transform:uppercase;
@@ -134,28 +125,28 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   position:relative;font-family:'IM Fell English',serif;
   opacity:0;animation:fa .9s ease forwards 1.8s}
 /* hand drawn corner effect */
-.core-box::before{content:'';position:absolute;top:-2px;left:-2px;
-  width:20px;height:20px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
-.core-box::after{content:'';position:absolute;bottom:-2px;right:-2px;
-  width:20px;height:20px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
+.core-box::before{content:'';position:absolute;top:-1px;left:-1px;
+  width:16px;height:16px;border-top:1px solid var(--gold);border-left:1px solid var(--gold)}
+.core-box::after{content:'';position:absolute;bottom:-1px;right:-1px;
+  width:16px;height:16px;border-bottom:1px solid var(--gold);border-right:1px solid var(--gold)}
 .c-label{font-family:'Kalam',cursive;font-size:10px;letter-spacing:3px;
   text-transform:uppercase;color:var(--red);margin-bottom:10px}
-.c-text{font-size:clamp(15px,1.8vw,18px);color:var(--ink);line-height:1.85;margin-bottom:10px}
+.c-text{font-size:clamp(17px,2.0vw,21px);color:var(--ink);line-height:1.85;margin-bottom:10px}
 .c-text em{color:var(--red);font-style:italic;
   text-decoration:underline;text-decoration-style:wavy;text-decoration-color:rgba(139,32,32,0.4)}
-.c-note{font-family:'Kalam',cursive;font-size:13px;color:var(--ink2);
+.c-note{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--ink2);
   font-style:italic;line-height:1.7;border-top:1px dashed var(--bd);padding-top:10px;margin-top:10px}
 
 /* soul block */
 .soul-intro{border-left:3px solid var(--red);padding:16px 20px;
   background:rgba(139,32,32,0.04);
   opacity:0;animation:fa .9s ease forwards 2s}
-.soul-intro p{font-size:14px;line-height:1.9;color:var(--ink);margin-bottom:10px}
+.soul-intro p{font-size:15px;line-height:1.9;font-weight:300;color:var(--ink);margin-bottom:10px}
 .soul-intro p:last-child{margin:0;color:var(--ink2);font-style:italic;
   font-family:'Kalam',cursive;font-size:13px}
 .soul-intro em{color:var(--red)}
 
-.i-note{font-family:'Kalam',cursive;font-size:12px;color:var(--ink3);
+.i-note{font-family:'Inter',sans-serif;font-size:11px;font-weight:300;color:var(--ink3);
   font-style:italic;margin-top:4px;line-height:1.65;
   opacity:0;animation:fa .8s ease forwards 2.2s}
 
@@ -166,27 +157,27 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 ══════════════════════════════ */
 #nav{position:fixed;top:0;left:0;right:0;z-index:800;height:54px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 5%;background:rgba(245,234,216,0.97);
+  padding:0 5%;background:rgba(255,255,255,0.97);
   border-bottom:2px solid var(--bd);backdrop-filter:blur(8px);
   opacity:0;pointer-events:none;transition:opacity .4s}
 #nav.on{opacity:1;pointer-events:auto}
-.nav-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:700;
-  color:var(--ink);cursor:pointer}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;
+  font-style:italic;color:var(--green);cursor:pointer}
 .nav-links{display:flex;gap:20px}
 .nav-links a{background:none;border:none;cursor:pointer;
-  font-family:'Kalam',cursive;font-size:13px;color:var(--ink2);
+  font-family:'Kalam',cursive;font-size:15px;color:var(--ink2);
   transition:color .2s;text-decoration:none}
-.nav-links a:hover,.nav-links a.active{color:var(--red)}
+.nav-links a:hover,.nav-links a.active{color:var(--green)}
 .nav-hbg{display:none;background:none;border:none;cursor:pointer;
   font-size:20px;color:var(--ink)}
 .mob-menu{display:none;position:fixed;top:54px;left:0;right:0;z-index:799;
-  background:rgba(245,234,216,0.99);border-bottom:1px solid var(--bd);
+  background:rgba(255,255,255,0.99);border-bottom:1px solid var(--bd);
   flex-direction:column}
 .mob-menu.on{display:flex}
-.mob-menu a{padding:13px 24px;font-family:'Kalam',cursive;font-size:14px;
+.mob-menu a{padding:13px 24px;font-family:'Inter',sans-serif;font-size:13px;
   color:var(--ink2);cursor:pointer;text-decoration:none;
   border-bottom:1px solid var(--bd);transition:color .2s}
-.mob-menu a:hover{color:var(--red)}
+.mob-menu a:hover{color:var(--green)}
 
 /* ══════════════════════════════
    MAIN SECTIONS
@@ -201,195 +192,192 @@ main.on{opacity:1;pointer-events:auto}
   will-change:transform}
 
 /* torn paper divider */
-.tear{width:100%;height:32px;position:relative;overflow:hidden;margin:-1px 0;z-index:2}
-.tear::before{content:'';position:absolute;inset:0;
-  background:var(--paper2);
-  clip-path:polygon(0 0,2% 100%,4% 20%,6% 90%,8% 10%,10% 80%,12% 5%,14% 95%,16% 15%,18% 85%,20% 0,22% 100%,24% 20%,26% 90%,28% 10%,30% 80%,32% 5%,34% 95%,36% 15%,38% 85%,40% 0,42% 100%,44% 20%,46% 90%,48% 10%,50% 80%,52% 5%,54% 95%,56% 15%,58% 85%,60% 0,62% 100%,64% 20%,66% 90%,68% 10%,70% 80%,72% 5%,74% 95%,76% 15%,78% 85%,80% 0,82% 100%,84% 20%,86% 90%,88% 10%,90% 80%,92% 5%,94% 95%,96% 15%,98% 85%,100% 0,100% 100%,0 100%)}
+.tear{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(184,134,11,0.3),transparent);margin:0;z-index:2}
 
 /* section BGs */
-#s1{background:var(--paper)}
+#s1{background:#ffffff}
 #s2{background:var(--paper2)}
 #s3{background:var(--paper3)}
-#s4{background:var(--paper)}
+#s4{background:#ffffff}
 #s5{background:var(--paper2);min-height:auto;padding:80px 8%}
 
 /* chapter label */
 .clbl{display:flex;align-items:center;gap:12px;margin-bottom:22px;position:relative;z-index:1}
-.clbl-num{font-family:'Caveat',cursive;font-size:14px;color:var(--ink3)}
-.clbl-line{flex:1;max-width:30px;height:1px;background:var(--bd2)}
+.clbl-num{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--gold)}
+.clbl-line{flex:1;max-width:30px;height:1px;background:var(--gold);opacity:.4}
 .clbl-tag{font-family:'Kalam',cursive;font-size:10px;letter-spacing:3px;
   text-transform:uppercase;color:var(--red)}
 
 /* ghost chapter */
-.gn{font-family:'Caveat',cursive;font-weight:700;
-  font-size:clamp(160px,24vw,280px);line-height:1;
-  color:rgba(26,18,9,0.04);position:absolute;right:-10px;
+.gn{font-family:'Playfair Display',serif;font-weight:300;
+  font-size:clamp(188px,26.9vw,330px);line-height:1;
+  color:rgba(13,31,15,0.04);position:absolute;right:-10px;
   top:50%;transform:translateY(-50%);pointer-events:none;user-select:none;z-index:0}
 
 /* headings */
-.sh{font-family:'Caveat',cursive;font-weight:700;
-  font-size:clamp(40px,6vw,78px);line-height:1.05;
+.sh{font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(47px,6.7vw,92px);line-height:1.05;
   color:var(--ink);margin-bottom:12px;position:relative;z-index:1}
-.sh em{color:var(--red);font-style:italic}
+.sh em{color:var(--green);font-style:italic}
 .sh.underline{text-decoration:underline;text-decoration-style:wavy;
   text-decoration-color:rgba(139,32,32,0.3)}
-.ssub{font-family:'Kalam',cursive;font-size:15px;color:var(--ink2);
+.ssub{font-family:'Inter',sans-serif;font-size:15px;font-weight:300;color:var(--ink2);
   margin-bottom:32px;line-height:1.7;max-width:460px;position:relative;z-index:1;font-style:italic}
 
 /* body text */
 .bt{font-size:16px;line-height:1.95;color:var(--ink);
   margin-bottom:18px;max-width:680px;position:relative;z-index:1}
-.bt em{color:var(--red);font-style:italic}
+.bt em{color:var(--green);font-style:normal;font-weight:500}
 .bt.blue{color:var(--blue)}
 
 /* margin note */
-.margin-note{font-family:'Caveat',cursive;font-size:14px;color:var(--blue);
+.margin-note{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold);
   position:absolute;left:-120px;top:0;width:100px;line-height:1.4;
   transform:rotate(-2deg);opacity:.8}
 
 /* pull quotes */
-.pq{border-left:4px solid var(--red);padding:18px 24px;margin:28px 0;
-  background:rgba(139,32,32,0.04);
-  font-family:'Caveat',cursive;font-size:clamp(18px,2.5vw,24px);
+.pq{border-left:2px solid var(--gold);padding:20px 28px;margin:28px 0;
+  background:rgba(184,134,11,0.04);
+  font-family:'Playfair Display',serif;font-size:clamp(21px,2.8vw,28px);
   color:var(--ink);line-height:1.6;max-width:680px;
   position:relative;z-index:1;
   opacity:0;transform:translateX(-10px);
   transition:opacity .8s ease,transform .8s ease}
 .pq.vis{opacity:1;transform:translateX(0)}
-.pq::before{content:'"';position:absolute;top:-8px;left:16px;
+.pq::before{content:'\201C';position:absolute;top:-8px;left:16px;
   font-size:60px;color:rgba(139,32,32,0.15);font-family:'Caveat',cursive;line-height:1}
 .pq small{display:block;margin-top:8px;font-family:'Kalam',cursive;
-  font-size:12px;color:var(--ink2);font-style:italic}
+  font-size:14px;color:var(--ink2);font-style:italic}
 
 /* rule */
 .rule{display:flex;align-items:center;gap:14px;margin:24px 0;max-width:480px;position:relative;z-index:1}
 .rule::before,.rule::after{content:'';flex:1;height:1px;
   background:linear-gradient(to right,transparent,var(--bd2),transparent)}
-.rule span{font-family:'Caveat',cursive;font-size:13px;color:var(--ink3)}
+.rule span{font-family:'Inter',sans-serif;font-size:10px;color:var(--gold)}
 
 /* ══ CARDS / GRIDS ══ */
 .sg{display:grid;gap:16px;margin:28px 0;max-width:860px;position:relative;z-index:1}
 .sg.c3{grid-template-columns:1fr 1fr 1fr}
 .sg.c2{grid-template-columns:1fr 1fr}
-.sc{background:rgba(255,252,245,0.8);padding:22px 20px;
+.sc{background:#ffffff;padding:22px 20px;
   border:1px solid var(--bd);position:relative;overflow:hidden;
   opacity:0;transform:translateY(10px);
   transition:opacity .5s ease,transform .5s ease,box-shadow .2s}
 .sc.vis{opacity:1;transform:translateY(0)}
-.sc:hover{box-shadow:3px 3px 0 var(--bd2)}
+.sc:hover{box-shadow:0 4px 24px rgba(13,31,15,0.08);border-color:rgba(184,134,11,0.3)}
 /* corner fold */
 .sc::after{content:'';position:absolute;bottom:0;right:0;width:0;height:0;
-  border-style:solid;border-width:0 0 16px 16px;
+  border-style:solid;border-width:0 0 14px 14px;
   border-color:transparent transparent var(--paper3) transparent}
 .sc-icon{font-size:18px;margin-bottom:8px}
-.sc-title{font-family:'Caveat',cursive;font-size:18px;font-weight:700;
+.sc-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;letter-spacing:.3px;
   color:var(--ink);margin-bottom:6px}
 .sc-text{font-family:'Kalam',cursive;font-size:12.5px;line-height:1.75;color:var(--ink2)}
 
 /* evidence */
 .ev-wrap{border:1px solid var(--bd);margin:28px 0;max-width:860px;
-  background:rgba(255,252,245,0.6);position:relative;z-index:1}
+  background:#ffffff;position:relative;z-index:1}
 .ev{display:grid;grid-template-columns:36% 64%;border-bottom:1px solid var(--bd);
   opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .5s ease}
 .ev:last-child{border-bottom:none}
 .ev.vis{opacity:1;transform:translateY(0)}
-.ev:hover{background:rgba(139,32,32,0.03)}
-.ev-l{padding:18px 20px;border-right:1px dashed var(--bd)}
+.ev:hover{background:rgba(26,61,37,0.03)}
+.ev-l{padding:18px 20px;border-right:1px solid var(--bd);background:rgba(13,31,15,0.02)}
 .ev-r{padding:18px 20px}
-.ev-qtag{font-family:'Kalam',cursive;font-size:9px;letter-spacing:2px;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
-.ev-atag{font-family:'Kalam',cursive;font-size:9px;letter-spacing:2px;
-  text-transform:uppercase;color:var(--red);margin-bottom:5px}
-.ev-q{font-family:'Caveat',cursive;font-size:15px;color:var(--ink2);line-height:1.35}
-.ev-a{font-family:'Kalam',cursive;font-size:13px;line-height:1.85;color:var(--ink)}
+.ev-qtag{font-family:'Inter',sans-serif;font-size:8px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--ink3);margin-bottom:5px;font-weight:500}
+.ev-atag{font-family:'Inter',sans-serif;font-size:8px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:5px;font-weight:600}
+.ev-q{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--ink2);line-height:1.4}
+.ev-a{font-family:'Inter',sans-serif;font-size:14px;line-height:1.85;font-weight:300;color:var(--ink)}
 
 /* accept/offer */
 .ao-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;
   margin:28px 0;max-width:860px;position:relative;z-index:1}
-.ao{background:rgba(255,252,245,0.8);border:1px solid var(--bd);padding:20px;
+.ao{background:#ffffff;border:1px solid var(--bd);padding:22px;
   position:relative;opacity:0;transform:translateY(8px);
   transition:opacity .5s ease,transform .5s ease}
 .ao.vis{opacity:1;transform:translateY(0)}
-.ao-tag{font-family:'Kalam',cursive;font-size:9px;letter-spacing:2px;
-  text-transform:uppercase;margin-bottom:7px}
-.ao.m .ao-tag{color:var(--blue)}.ao.o .ao-tag{color:var(--red)}
-.ao-title{font-family:'Caveat',cursive;font-size:17px;font-weight:700;
-  color:var(--ink);margin-bottom:7px}
-.ao-text{font-family:'Kalam',cursive;font-size:12.5px;line-height:1.75;color:var(--ink2)}
+.ao-tag{font-family:'Inter',sans-serif;font-size:8px;letter-spacing:3px;
+  text-transform:uppercase;margin-bottom:7px;font-weight:600}
+.ao.m .ao-tag{color:var(--ink3)}.ao.o .ao-tag{color:var(--gold)}
+.ao-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;
+  color:var(--green);margin-bottom:7px}
+.ao-text{font-family:'Inter',sans-serif;font-size:13px;line-height:1.75;color:var(--ink2)}
 
 /* 9 months */
-.nine{background:rgba(255,252,245,0.8);border:1px solid var(--bd);
+.nine{background:#ffffff;border:1px solid var(--bd);
   padding:28px 32px;margin:28px 0;max-width:700px;
   position:relative;z-index:1;overflow:hidden}
-.nine::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;
-  background:var(--blue)}
-.nine-n{font-family:'Caveat',cursive;font-size:100px;font-weight:700;
-  color:var(--blue);opacity:.08;position:absolute;right:14px;top:8px;line-height:1}
+.nine::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
+  background:var(--gold)}
+.nine-n{font-family:'Playfair Display',serif;font-size:100px;font-weight:700;
+  color:var(--gold);opacity:.08;position:absolute;right:14px;top:8px;line-height:1}
 .nine-head{font-family:'Kalam',cursive;font-size:10px;letter-spacing:3px;
   text-transform:uppercase;color:var(--blue);margin-bottom:12px}
-.nine p{font-family:'Kalam',cursive;font-size:13.5px;line-height:1.9;
+.nine p{font-family:'Inter',sans-serif;font-size:15px;line-height:1.9;font-weight:300;
   color:var(--ink);margin-bottom:10px}
 .nine p:last-child{margin:0;font-style:italic;color:var(--ink2)}
 
 /* ══ FINAL S5 ══ */
 .f5{max-width:680px;margin:0 auto;text-align:center}
-.f5-tag{font-family:'Kalam',cursive;font-size:11px;letter-spacing:4px;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:20px}
-.f5-h{font-family:'Caveat',cursive;font-weight:700;
-  font-size:clamp(38px,6vw,70px);line-height:1.0;
+.f5-tag{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:5px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:600}
+.f5-h{font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(44px,6.7vw,82px);line-height:1.0;
   color:var(--ink);margin-bottom:20px}
-.f5-h em{color:var(--red);font-style:italic}
-.f5-p{font-size:16px;line-height:2;color:var(--ink);margin-bottom:14px}
+.f5-h em{color:var(--green);font-style:italic}
+.f5-p{font-size:18px;line-height:2;color:var(--ink);margin-bottom:14px}
 .f5-p em{color:var(--red)}.f5-p.dim{color:var(--ink2);font-size:14px}
-.f5-p.hand{font-family:'Caveat',cursive;font-size:clamp(20px,3vw,28px)}
+.f5-p.hand{font-family:'Caveat',cursive;font-size:clamp(23px,3.4vw,33px)}
 
-.decl{background:rgba(255,252,245,0.9);border:1px solid var(--bd);
+.decl{background:#ffffff;border:1px solid var(--bd);
   padding:26px 30px;margin:22px auto;max-width:560px;text-align:left;position:relative}
 .decl::before,.decl::after{content:'';position:absolute;
   width:18px;height:18px}
 .decl::before{top:-1px;left:-1px;border-top:2px solid var(--red);border-left:2px solid var(--red)}
 .decl::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--red);border-right:2px solid var(--red)}
-.decl p{font-family:'Kalam',cursive;font-size:14px;line-height:1.9;
+.decl p{font-family:'Inter',sans-serif;font-size:13px;line-height:1.9;
   color:var(--ink);margin-bottom:12px}
 .decl p:last-child{margin:0;font-style:italic;color:var(--ink2)}
 
-.soul-f{border-left:3px solid var(--red);padding:22px 26px;
+.soul-f{border-left:2px solid var(--gold);padding:22px 26px;
   margin:22px auto;max-width:560px;background:rgba(139,32,32,0.04);text-align:left}
-.soul-f p{font-family:'Kalam',cursive;font-size:14px;line-height:1.9;
+.soul-f p{font-family:'Inter',sans-serif;font-size:13px;line-height:1.9;
   color:var(--ink);margin-bottom:10px}
 .soul-f p:last-child{margin:0;font-style:italic;color:var(--ink2);font-size:13px}
-.soul-f em{color:var(--red)}
+.soul-f em{color:var(--green);font-weight:500}
 
 /* final ask */
-.final-ask{border:2px solid var(--red);padding:28px 32px;
-  margin:24px auto;max-width:560px;background:rgba(139,32,32,0.04);
+.final-ask{border:1px solid rgba(184,134,11,0.35);padding:28px 32px;
+  margin:24px auto;max-width:560px;background:rgba(184,134,11,0.04);
   text-align:left;position:relative}
 .final-ask::before{content:'✦';position:absolute;top:-12px;left:50%;
   transform:translateX(-50%);background:var(--paper2);
-  padding:0 10px;font-size:14px;color:var(--red)}
+  padding:0 10px;font-size:12px;color:var(--gold)}
 .final-ask p{font-size:15px;line-height:1.9;color:var(--ink);margin-bottom:12px}
 .final-ask p:last-child{margin:0;font-style:italic;color:var(--ink2);
   font-family:'Caveat',cursive;font-size:18px}
 
 /* poem */
-.poem{border:1px solid var(--bd);padding:32px 36px;
-  max-width:380px;margin:28px auto;background:rgba(255,252,245,0.9);
+.poem{border:1px solid rgba(184,134,11,0.25);padding:36px 40px;
+  max-width:400px;margin:28px auto;background:#ffffff;
   text-align:left;position:relative}
 .poem::before{content:'♡';position:absolute;top:-14px;left:50%;
   transform:translateX(-50%);background:var(--paper2);
-  padding:0 10px;font-size:16px;color:var(--red)}
+  padding:0 10px;font-size:14px;color:var(--gold)}
 .poem-row{margin-bottom:18px}
-.poem-tag{font-family:'Kalam',cursive;font-size:10px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
-.poem-val{font-family:'Caveat',cursive;font-size:22px;color:var(--ink)}
-.poem-val.rose{color:var(--red);font-size:24px}
+.poem-tag{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:5px;font-weight:500}
+.poem-val{font-family:'Playfair Display',serif;font-size:24px;font-style:italic;color:var(--ink)}
+.poem-val.rose{color:var(--green);font-size:26px;font-weight:700}
 
 /* signature */
 .sig-wrap{margin-top:36px;text-align:center}
-.sig-note{font-family:'Kalam',cursive;font-size:13px;color:var(--ink2);
+.sig-note{font-family:'Kalam',cursive;font-size:15px;color:var(--ink2);
   font-style:italic;margin-bottom:8px}
-.sig{font-family:'Caveat',cursive;font-size:42px;font-weight:700;color:var(--ink);
-  transform:rotate(-1.5deg);display:inline-block}
+.sig{font-family:'Playfair Display',serif;font-size:48px;font-weight:600;font-style:italic;color:var(--green);
+  display:inline-block}
 
 .rv{opacity:0;transform:translateY(18px);transition:opacity .85s ease,transform .85s ease}
 .rv.vis{opacity:1;transform:translateY(0)}
@@ -503,17 +491,17 @@ footer p{font-family:'Kalam',cursive;font-size:11px;letter-spacing:3px;
       <div class="seal">only<br>for<br>you</div>
 
       <!-- INTENTION HIGHLIGHT -->
-      <div style="background:rgba(26,18,9,0.04);border:1px solid var(--bd2);
+      <div style="background:rgba(13,31,15,0.03);border:1px solid rgba(184,134,11,0.25);
         padding:28px 28px 24px;position:relative;
         opacity:0;animation:fa .9s ease forwards 1.4s">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;
-          background:linear-gradient(90deg,var(--red),var(--blue),var(--red));opacity:.6"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;
+          background:linear-gradient(90deg,var(--green),var(--gold),var(--green));opacity:.7"></div>
         <div style="font-family:'Kalam',cursive;font-size:9px;letter-spacing:4px;
           text-transform:uppercase;color:var(--red);margin-bottom:14px">
           Open &nbsp;·&nbsp; Observe &nbsp;·&nbsp; My Intention
         </div>
         <p style="font-family:'Caveat',cursive;font-weight:700;
-          font-size:clamp(20px,2.8vw,28px);color:var(--ink);line-height:1.35;margin-bottom:14px">
+          font-size:clamp(23px,3.1vw,33px);color:var(--ink);line-height:1.35;margin-bottom:14px">
           "If you understand yourself,<br>you will understand me too."
         </p>
         <p style="font-family:'Kalam',cursive;font-size:13.5px;line-height:1.85;
@@ -525,12 +513,12 @@ footer p{font-family:'Kalam',cursive;font-size:11px;letter-spacing:3px;
           I never came to impress you. I never came to chase you. I came because I genuinely understood you — before I even said a word about how I felt.
         </p>
         <p style="font-family:'Caveat',cursive;font-weight:700;
-          font-size:clamp(18px,2.5vw,24px);color:var(--red);line-height:1.4;
+          font-size:clamp(21px,2.8vw,28px);color:var(--red);line-height:1.4;
           border-top:1px dashed var(--bd2);padding-top:14px;margin:0">
           And knowing all of that —<br>I'm still here.
         </p>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;
-          background:linear-gradient(90deg,var(--red),var(--blue),var(--red));opacity:.6"></div>
+          background:linear-gradient(90deg,var(--green),var(--gold),var(--green));opacity:.6"></div>
       </div>
 
       <div class="core-box">
@@ -669,29 +657,29 @@ footer p{font-family:'Kalam',cursive;font-size:11px;letter-spacing:3px;
     <div style="background:rgba(139,32,32,0.05);border:2px solid rgba(139,32,32,0.2);
       padding:28px 30px;margin:24px 0;max-width:720px;position:relative">
       <div style="position:absolute;top:-1px;left:0;right:0;height:3px;
-        background:linear-gradient(90deg,var(--red),var(--blue),var(--red))"></div>
+        background:linear-gradient(90deg,var(--green),var(--gold),var(--green))"></div>
       <p style="font-family:'Caveat',cursive;font-weight:700;
-        font-size:clamp(20px,3vw,28px);color:var(--ink);line-height:1.45;margin-bottom:16px">
+        font-size:clamp(23px,3.4vw,33px);color:var(--ink);line-height:1.45;margin-bottom:16px">
         To cheat you, hurt you, chase you with wrong intention — I never thought about that for even one second.
       </p>
       <p style="font-family:'Kalam',cursive;font-size:14.5px;line-height:1.9;
         color:var(--ink);margin-bottom:14px">
         I like you — that is the only thing I know. Nothing else. Nothing more.
       </p>
-      <p style="font-family:'Kalam',cursive;font-size:14px;line-height:1.9;
+      <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.9;
         color:var(--ink);margin-bottom:14px">
         I didn't come into your life without thought. I came after understanding you deeply. I will not let you suffer alone, feel lonely, or struggle by yourself.
       </p>
-      <p style="font-family:'Kalam',cursive;font-size:14px;line-height:1.9;
+      <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.9;
         color:var(--ink);margin-bottom:14px">
         Think whatever you want about me, Sowndarya. If this feels like torchal — I understand. But please think deeply, think calmly — and you'll see the love and care that's been there the whole time.
       </p>
-      <p style="font-family:'Kalam',cursive;font-size:14px;line-height:1.9;
+      <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.9;
         color:var(--ink);margin-bottom:14px">
         Even in your situation — if I was there, I would react the same way. I respect that. I respect everything about your situation.
       </p>
       <p style="font-family:'Caveat',cursive;font-weight:700;
-        font-size:clamp(18px,2.5vw,24px);color:var(--red);line-height:1.5;
+        font-size:clamp(21px,2.8vw,28px);color:var(--red);line-height:1.5;
         border-top:1px dashed rgba(139,32,32,0.2);padding-top:14px;margin:0">
         I'm surviving with 1% hope — understanding you, being there quietly, not letting you be lonely. That is all I have been doing.
       </p>
@@ -734,10 +722,10 @@ footer p{font-family:'Kalam',cursive;font-size:11px;letter-spacing:3px;
     <div style="border-left:4px solid var(--blue);padding:20px 24px;
       background:rgba(26,53,96,0.05);margin:24px 0;max-width:700px">
       <p style="font-family:'Caveat',cursive;font-weight:700;
-        font-size:clamp(20px,3vw,26px);color:var(--blue);line-height:1.4;margin-bottom:12px">
+        font-size:clamp(23px,3.4vw,30px);color:var(--blue);line-height:1.4;margin-bottom:12px">
         When you have no family support — I am there for you.
       </p>
-      <p style="font-family:'Kalam',cursive;font-size:14px;line-height:1.9;color:var(--ink);margin:0">
+      <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.9;color:var(--ink);margin:0">
         Not just saying this. This is why I came. This is why I stayed. This is why I will keep staying — silently, patiently, without asking for anything back.
       </p>
     </div>
@@ -792,7 +780,7 @@ footer p{font-family:'Kalam',cursive;font-size:11px;letter-spacing:3px;
 
     <!-- Final ask -->
     <div class="final-ask rv">
-      <p style="font-family:'Caveat',cursive;font-size:clamp(18px,2.8vw,24px);font-weight:700;color:var(--ink);margin-bottom:14px">
+      <p style="font-family:'Caveat',cursive;font-size:clamp(21px,3.1vw,28px);font-weight:700;color:var(--ink);margin-bottom:14px">
         Finally — just one time — I want to meet you and talk peacefully for 30 minutes.
       </p>
       <p>Just that small time from your life would be enough for me. I hope one day you'll agree to that. After that, I won't create or come into your life again.</p>
@@ -810,7 +798,7 @@ footer p{font-family:'Kalam',cursive;font-size:11px;letter-spacing:3px;
       </div>
     </div>
 
-    <p style="font-family:'Caveat',cursive;font-size:clamp(22px,3.5vw,30px);
+    <p style="font-family:'Caveat',cursive;font-size:clamp(25px,3.9vw,35px);
       font-weight:700;color:var(--ink);margin-top:36px">
       Be yourself, Sowndarya. Always.
     </p>
